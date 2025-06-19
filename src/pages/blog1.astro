@@ -1,61 +1,216 @@
 ---
-import '../styles/global.css'
-import favicon from '../favicon.ico' 
-import { Image } from 'astro:assets'
-import whatsapp from '../whatsapp.svg'
-import linkedin from '../linkedin.svg'
-import insta from '../insta.svg'
+import Layout from "../layouts/Layout.astro";
+import img1 from "../AivsNoAi.svg"
+import { Image } from "astro:assets";
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-	<link rel="icon" href={favicon} type="image/x-icon"/>
-	<meta name="viewport" content="width=device-width" />
-	<meta name="generator" content={Astro.generator} />
-	<title>K3 Blogs - A Fresher's take on "vibe coding"</title>
-	<style type="text/css">
-		body {
-			margin: 40px auto;
-			margin-top: 0px;
-			max-width: 720px;
-			line-height: 1.6;
-			font-size: 18px;
-			/* color: #444; */
-			padding: 0 10px
-		}
+<Layout title="K3 Blogs - Making sense of Vibe Coding as a fresher">
+	<section class="flex justify-center flex-col items-center mt-6 sm:mt-10 px-4">
+		<h1 class="text-2xl sm:text-3xl lg:text-4xl font-serif text-center leading-tight">
+			Trying to make sense of "vibe coding" <br class="hidden sm:block">
+			<span class="font-sans mt-3 sm:mt-5 flex flex-col sm:flex-row items-center justify-center text-base sm:text-lg lg:text-xl gap-2 sm:gap-3 text-gray-600">
+				<p>Apr 19, 2025</p>
+				<span class="hidden sm:block size-1 bg-gray-600 rounded-full"></span>
+				<p>15 mins read</p>
+			</span>
+		</h1>
+	</section>
+	
+	<div class="flex justify-center mt-6 sm:mt-8 px-4">
+		<div id="animated-card" class="rounded-xl sm:rounded-2xl bg-[#00B8F4] w-full max-w-[900px] h-[250px] sm:h-[300px] lg:h-[400px] flex flex-col items-center justify-center relative shadow-lg">
+			<span class="absolute inset-0 opacity-20" style="background-image: url('/duckbg.webp'); background-size: cover; background-position: center; border-radius: inherit;"></span>
+			<div class="relative z-10 flex flex-col items-center justify-center h-full -mt-8 sm:-mt-12 lg:-mt-20">
+				<span class="word opacity-0 translate-y-6 transition-all duration-700 text-white text-3xl sm:text-4xl lg:text-6xl font-bold">Vibing</span>
+				<span class="word opacity-0 translate-y-6 transition-all duration-700 text-white text-3xl sm:text-4xl lg:text-6xl font-bold">in</span>
+				<span class="word opacity-0 translate-y-6 transition-all duration-700 text-white text-3xl sm:text-4xl lg:text-6xl font-bold">prod</span>
+			</div>
+		</div>
+	</div>
+	
+	<section class="px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+		<h1 class="text-xl sm:text-2xl mt-5 mb-3">
+			So... what is <b class="text-white">"Vibe Coding"</b>? <br>
+		</h1>
+		<p class="text-base sm:text-lg leading-7 sm:leading-9">
+			As <a class="text-white underline break-words" target="_blank" href="https://x.com/karpathy/status/1886192184808149383?lang=en">Andrej Karpathy</a> put it: 
+			<em>"There's a new kind of coding I call 'vibe coding', where you fully give in to the vibes, embrace exponentials, and <b class="text-white">forget that the code even exists.</b>"</em> <br>
+			What I interpret from his quote is that vibe coding is a mindset—where a developer is letting intuition lead the way and trusting your tooling and experience to fill in the gaps later. This means ignoring (at least temporarily):
+			<ol class="list-decimal ml-4 sm:ml-6 mt-2 space-y-1">
+				<li>Code structure or schematics like doing clean code</li>
+				<li>Scaling and costs</li>
+				<!-- <li>Typing Speed and code navigation</li> -->
+				<li>Code maintainence, etc</li>
+			</ol>
+		</p>
+		<p class="mt-3 text-base sm:text-lg leading-7 sm:leading-9">
+			This allows the developer to develop way faster and a lot quicker. <br>
+			As <a href="#" target="_blank" class="underline font-bold text-white">Theo</a> said, these AI Tools allows the new <b class="font-bold text-white">developers and non-developers</b> to push out code now without having to worry about time spent on architecting, typing speed, lack of tooling knowledge, etc. Which is great because a lot of people will now be happy to learn coding as it is more accessible now
+		</p>
+		
+		<h1 class="mt-5 text-xl sm:text-2xl text-white font-semibold">Impacts of Vibe coding and AI tools</h1>
+		<div class="mt-6 sm:mt-8 w-full overflow-hidden">
+			<Image src={img1} alt="Image 1" class="w-full h-auto max-w-full"/>
+		</div>
+		
+		<p class="mt-5 text-base sm:text-lg leading-7 sm:leading-9">
+			This is a practical depiction of the experience many freshers have. With the accessibility of platforms like Vercel or Netlify and databases like MongoDB Atlas, it's now easier than ever to deploy projects and experiment with new ideas. These tools help new developers reach the "I can do that" stage much faster, making coding more approachable and enjoyable for everyone.<br><br>
+			But When the application breaks , the tools that helped them would suffer from parsing the code base and it would be too complex to just look it up in Google.<br><br>
+			<h1 class="text-white text-2xl mb-6">Imbalance </h1>
+			This shift also brings new dynamics to the recruitment process. AI tools can help candidates quickly build awesome resumes and learn awesome technologies as well. While this is a great as things are more accessible to the general public, it also highlights the importance of building a strong foundation in core skills. Companies and new developers alike are adapting to this evolving landscape, and it's an exciting time to be part of the industry.<br><br>
+			I've often been approached with questions like:
+			<ul class="list-disc ml-4 sm:ml-6 space-y-2 mt-2">
+				<li>Why does my text look so weird everywhere? (They weren't familiar with CSS resets)</li>
+				<li>I made a mobile app—how do I install it on my phone? (They used an AI editor to create an app in JS, but were aiming for a native mobile app)</li>
+				<li>The infamous - How do I center this component?</li>
+			</ul>
+		</p>
+		
+		<h1 class="mt-6 text-xl sm:text-2xl text-white font-semibold">The Unintended Consequences: Free Tier Exploitation by AI-Generated Code</h1>
+		<p class="mt-5 text-base sm:text-lg leading-7 sm:leading-9">
+		One of the less talked about side effects of tools like Loveable, Cursor, and other AI coding assistants is the sheer volume of code and projects they enable users to deploy—often with little regard for resource usage. This has led to a kind of unintentional exploitation of the generous free tiers offered by platforms like <b class="text-white">Vercel</b>, <b class="text-white">Turso</b>, <b class="text-white">PlanetScale</b>, <b class="text-white">Supabase</b>, and more.<br><br>
+		For example, Loveable's GitHub was shut down after it was found to be creating around 5,000 deployments every hour, overwhelming free hosting providers. PlanetScale had to discontinue their free tier, a move that many suspect was at least partly due to the surge in automated, AI-generated projects. Firestore's free cloud storage has quietly moved to a paid tier, and similar changes are happening across the industry.<br><br>
+		While these tools democratize development, they also make it easy to spin up countless projects with a single click, often without users understanding the real-world costs or limitations. The result? Service providers are forced to clamp down, making it harder for genuine hobbyists and learners to access free resources.<br><br>
+		</p>
+		
+		<h1 class="mt-6 text-xl sm:text-2xl text-white font-semibold">My Personal Experience with these AI tools</h1>
+		<p class="mt-5 text-base sm:text-lg leading-7 sm:leading-9">
+			Once again as Theo said, these AI tools are great because they allow new developers to make products which would not have been possible otherwise. <br><br>
+			But this is only true in the short term because as time goes on, these products tend to break and the same tools that helped them build these products will start to struggle due to the amount of code that it needs to parse. <br><br>
+			I had issues like Cursor started to make components directory inside each route of my app router next.js project:
+		</p>
+		
+		<div class="mt-4 overflow-x-auto">
+			<pre class="bg-gray-900 text-gray-100 p-4 rounded-lg text-xs sm:text-sm whitespace-pre overflow-x-auto min-w-0">
+app/
+├── layout.tsx
+├── page.tsx
+├── home/
+│   ├── page.tsx
+│   └── components/
+│       ├── HomeHeader.tsx
+│       └── HomeContent.tsx
+├── login/
+│   ├── page.tsx
+│   └── components/
+│       ├── LoginForm.tsx
+│       └── LoginHeader.tsx</pre>
+		</div>
+		
+		<p class="mt-4 text-base sm:text-lg leading-7 sm:leading-9">
+			During a Hackathon our site kept breaking down and after I went through the code we found out that cursor thought we were using pages router while in actuality we were using app router. <br><br>
+			It helped me write a logic to sync up the client and server data in Indexed DB but when I wanted it to port from static JSON to mongoDB, it just couldn't.
+		</p>
+		
+		<h1 class="text-xl sm:text-2xl text-white mt-6 font-semibold">The current state of AI tools</h1>
+		<p class="mt-3 text-base sm:text-lg leading-7 sm:leading-8">
+			Here's something I've noticed about the current AI coding landscape: <b class="text-white">we're seeing a new generation of developers who can build quickly, but may not always have had the chance to develop strong debugging skills yet as Theo pointed out in his videos.</b> <br><br>
+			When AI tools generate code rapidly, it's easy to miss out on the gradual learning process that comes from writing and troubleshooting code yourself. Understanding the reasoning behind certain patterns, trade-offs, and how to resolve issues is a crucial part of growth. <br><br>
+			The AI provided the "what," but not the "why" comes with experience and curiosity. <br><br>
+			The key is to treat AI as a powerful assistant—like a calculator for an accountant—while still investing time in understanding and learning. Some tips:
+			<ol class="list-decimal ml-4 sm:ml-6 mt-2 space-y-1">
+				<li>Let AI write the boilerplate, but <b class="text-white">read and understand every line</b></li>
+				<li>Ask the AI to explain complex sections instead of just copying them</li>
+				<li>Engage with the development community to learn from others and get help when needed</li>
+				<li>Treat these tools as an extension of your knowledge, and embrace opportunities to learn when challenges arise</li>
+			</ol>
+		</p>
+		
+		<div class="mt-4 space-y-4">
+			<div>
+				<p class="text-sm sm:text-base mb-2 text-gray-300">This was the file structure it gave:</p>
+				<div class="overflow-x-auto">
+					<pre class="bg-gray-900 text-gray-100 p-4 rounded-lg text-xs sm:text-sm whitespace-pre overflow-x-auto min-w-0">
+api/
+  main.py
+  requirements.txt
+  vercel.json</pre>
+				</div>
+			</div>
+			
+			<div>
+				<p class="text-sm sm:text-base mb-2 text-gray-300">vercel.json:</p>
+				<div class="overflow-x-auto">
+					<pre class="bg-gray-900 text-gray-100 p-4 rounded-lg text-xs sm:text-sm whitespace-pre overflow-x-auto min-w-0">
+{`{
+  "version": 3,
+  "routes": [
+    {"src": "/(.*)", "dest": "/main.py"}
+  ]
+}`}
+</pre>
+				</div>
+			</div>
+		</div>
+		
+		<p class="mt-4 text-base sm:text-lg leading-7 sm:leading-8">
+			The worst of all was when I was having trouble with a package. The package I wanted to use was in python but I am doing the development in kotlin and I didn't want to spin up a server to do the processing. <br><br>
+			After testing out the recommendations that ChatGPT gave, it concluded that the only feasible way was for me to convert my <b class="text-white">.py</b> to <b class="text-white">.c</b> using <b class="text-white">Cython</b> then to <b class="text-white">.so</b> and only then embed it into the kotlin app.
+		</p>
+		
 
-		h1,
-		h2,
-		h3 {
-			line-height: 1.2
+		<div class="mt-4 overflow-x-auto">
+			<pre class="bg-gray-900 text-gray-100 p-4 rounded-lg text-xs sm:text-sm whitespace-pre text-center">
+.py → .c → .so → kotlin via a plugin</pre>
+		</div>
+		<p class="mt-6">Or i should just re-write the package in kotlin. But in truth the package itself provided a method to return the JSON needed to perform the task in any language, This allowed me to just spin up a python server in the vercel and get the data needed and process it in the mobile app itself.</p>
+		<h1 class="text-xl sm:text-2xl text-white mt-6 font-semibold">The Learning Curve Dilemma</h1>
+		<p class="mt-3 text-base sm:text-lg leading-7 sm:leading-8">
+			Here's the thing that bothers me most about the current AI coding landscape: <b class="text-white">we're creating a generation of developers who can build but can't debug.</b> <br><br>
+			When your AI tool generates 200 lines of code in seconds, you miss out on the gradual learning process that comes with writing it yourself. You don't understand why certain patterns exist, what trade-offs were made, or how to troubleshoot when things inevitably break. <br><br>
+			I've seen this firsthand with friends who can spin up a full-stack app in a weekend but then spend weeks trying to figure out why their deployment keeps failing or why their database queries are slow. The AI gave them the "what" but not the "why." <br><br>
+			The problem exist because The companies, HRs even developers see theses tools like an <b class="text-white">automation</b> of the development work. When in truth AI is to developer is how calculator is to an acoutant.
+			<ol class="list-decimal ml-4 sm:ml-6 mt-2 space-y-1">
+				<li>Let AI write the boilerplate, but <b class="text-white">read and understand every line</b></li>
+				<li>Ask the AI to explain complex sections instead of just copying them</li>
+				<li>Spend time in the development community where there are smartter people will help you when the AI fails to.</li>
+				<li>Treat these tools like your own extension, like a refined knowledge base and be ready to actually learn things when these tools do fail you</li>
+			</ol>
+		</p>
+		
+		<h1 class="text-xl sm:text-2xl text-white mt-6 font-semibold">Conclusion: Finding Balance in the AI Era</h1>
+		<p class="mt-3 text-base sm:text-lg leading-7 sm:leading-8">
+			"Vibe coding" isn't inherently good or bad—it's a tool, and like any tool, its value depends on how we use it. For experienced developers, it can be liberating, allowing them to focus on high-level architecture and creative problem-solving while AI handles the mundane implementation details. <br><br>
+			But for newcomers, it can be a double-edged sword. The same technology that makes coding more accessible also makes it easier to build on shaky foundations. The challenge for our generation is learning to harness AI's power while still developing the fundamental skills that make us effective problem solvers. <br><br>
+			My advice? <b class="text-white">Embrace the vibe, but don't let it replace your curiosity.</b> Use AI to move faster, but take time to understand what you're building. Let it handle the repetitive tasks, but make sure you can still code without it when needed. <br><br>
+			The future belongs to developers who can seamlessly blend human creativity with AI efficiency—not those who depend entirely on either one. So vibe away, but keep one foot grounded in the fundamentals. Your future self (and your production servers) will thank you.
+		</p>
+	</section>
+	<style>
+		@keyframes fadeUp {
+			0% {
+				opacity: 0;
+				transform: translateY(24px);
+			}
+			100% {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+		#animated-card .word {
+			opacity: 0;
+			transform: translateY(24px);
+			animation: fadeUp 0.7s forwards;
+		}
+		#animated-card .word:nth-child(1) {
+			animation-delay: 0.1s;
+		}
+		#animated-card .word:nth-child(2) {
+			animation-delay: 0.7s;
+		}
+		#animated-card .word:nth-child(3) {
+			animation-delay: 1.3s;
+		}
+		
+		/* Ensure code blocks don't overflow on mobile */
+		pre {
+			word-wrap: break-word;
+			white-space: pre-wrap;
+		}
+		
+		@media (max-width: 640px) {
+			pre {
+				font-size: 0.75rem;
+				line-height: 1.25;
+			}
 		}
 	</style>
-
-</head>
-<body class="min-h-[200vh]">
-    <nav class="flex justify-between px-5 pt-[40px]">
-		<div class="flex justify-center items-center gap-2">
-			<Image src={favicon} width="40" height="40" alt="Logo"
-				class="hover:scale-110 transition-all duration-100 ease-in-out" />
-			<h1 class="text-3xl font-serif"> Blogs</h1>
-		</div>
-		<!-- Socials -->
-		<div class="flex">
-			<a href="https://wa.me/+918124075301" target="_blank">
-				<Image src={whatsapp} width="40" height="40" alt="Whatsapp"
-					class="hover:scale-110 transition-all duration-100 ease-in-out" />
-			</a>
-			<a href="https://www.instagram.com/kishorekumark22/" target="_blank">
-				<Image src={insta} width="40" height="40" alt="Instagram"
-					class="hover:scale-110 transition-all duration-100 ease-in-out" />
-			</a>
-			<a href="https://www.linkedin.com/in/kkube/" target="_blank">
-				<Image src={linkedin} width="40" height="40" alt="Linkedin"
-					class="hover:scale-110 transition-all duration-100 ease-in-out" />
-			</a>
-		</div>
-	</nav>
-    
-</body>
-</html>
+</Layout>

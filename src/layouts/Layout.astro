@@ -1,0 +1,94 @@
+---
+import '../styles/global.css'
+import { Image } from "astro:assets";
+import favicon from "../favicon.ico"
+import whatsapp from '../whatsapp.svg'
+import insta from '../insta.svg'
+import linkedin from '../linkedin.svg'
+import { ClientRouter } from 'astro:transitions';
+import rocket from '../rocket.svg'
+const { title } = Astro.props;
+---
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href={favicon} type="image/x-icon"/>
+	<meta name="viewport" content="width=device-width" />
+	<meta name="generator" content={Astro.generator} />
+	<title>{title}</title>
+	<ClientRouter />
+	<style type="text/css">
+		body {
+			margin: 40px auto;
+			margin-top: 0px;
+			max-width: 720px;
+			line-height: 1.6;
+			font-size: 18px;
+			/* color: #444; */
+			padding: 0 10px
+		}
+
+		h1,
+		h2,
+		h3 {
+			line-height: 1.2
+		}
+	</style>
+</head>
+<body>
+    <nav class="flex justify-between pt-[40px]">
+		<div class="flex justify-center items-center gap-2">
+			<Image src={favicon} width="40" height="40" alt="Logo"
+				class="hover:scale-110 transition-all duration-100 ease-in-out" />
+			<h1 class="text-3xl font-serif"> Blogs</h1>
+		</div>
+		<!-- Socials -->
+		<div class="flex">
+			<a href="https://wa.me/+918124075301" target="_blank">
+				<Image src={whatsapp} width="40" height="40" alt="Whatsapp"
+					class="hover:scale-110 transition-all duration-100 ease-in-out" />
+			</a>
+			<a href="https://www.instagram.com/kishorekumark22/" target="_blank">
+				<Image src={insta} width="40" height="40" alt="Instagram"
+					class="hover:scale-110 transition-all duration-100 ease-in-out" />
+			</a>
+			<a href="https://www.linkedin.com/in/kkube/" target="_blank">
+				<Image src={linkedin} width="40" height="40" alt="Linkedin"
+					class="hover:scale-110 transition-all duration-100 ease-in-out" />
+			</a>
+		</div>
+	</nav>
+    <slot />
+	<footer class=" mt-15">
+		<div class="border border-gray-300 "></div>
+		<p class="mt-10 ">
+			Subscribe to my news letter <br>
+			I wont spam i swear, I rarely write blogs anyways lol.
+		</p>
+		<button class="flex items-center justify-center mt-5 bg-gray-500 p-3 rounded-lg gap-3">
+			<Image src={rocket} alt="rocket" width={25} height={25}/>
+			Subscribe!
+		</button>
+		<div class="border border-gray-300 mt-20"></div>
+		<h1 class="my-10 mb-20">
+			Thanks for scrolling till here!
+		</h1>
+	</footer>
+</body>
+</html>
+<style is:global>
+	@keyframes bump {
+	  0% {
+		opacity: 0;
+		transform: scale(1) translateX(200px);
+	  }
+	  50% {
+		opacity: 0.5;
+		transform: scale(1.1);
+	  }
+	  100% {
+		opacity: 1;
+		transform: scale(1) translateX(0);
+	  }
+	}
+  </style>

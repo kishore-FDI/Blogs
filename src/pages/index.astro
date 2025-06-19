@@ -1,10 +1,7 @@
 ---
 import '../styles/global.css'
+import Layout from '../layouts/Layout.astro'
 import { Image } from "astro:assets";
-import favicon from "../favicon.ico"
-import whatsapp from '../whatsapp.svg'
-import insta from '../insta.svg'
-import linkedin from '../linkedin.svg'
 import rocket from '../rocket.svg'
 const blogs=[
 	{
@@ -18,79 +15,31 @@ const blogs=[
 
 ---
 
-<html lang="en">
-
-<head>
-	<meta charset="utf-8" />
-	<link rel="icon" href={favicon} type="image/x-icon"/>
-	<meta name="viewport" content="width=device-width" />
-	<meta name="generator" content={Astro.generator} />
-	<title>Kishore Kumar K - K3 Blogs</title>
-	<style type="text/css">
-		body {
-			margin: 40px auto;
-			margin-top: 0px;
-			max-width: 720px;
-			line-height: 1.6;
-			font-size: 18px;
-			/* color: #444; */
-			padding: 0 10px
-		}
-
-		h1,
-		h2,
-		h3 {
-			line-height: 1.2
-		}
-	</style>
-
-</head>
-
-<body class="">
-	<nav class="flex justify-between px-5 pt-[40px]">
-		<div class="flex justify-center items-center gap-2">
-			<Image src={favicon} width="40" height="40" alt="Logo"
-				class="hover:scale-110 transition-all duration-100 ease-in-out" />
-			<h1 class="text-3xl font-serif"> Blogs</h1>
-		</div>
-		<!-- Socials -->
-		<div class="flex">
-			<a href="https://wa.me/+918124075301" target="_blank">
-				<Image src={whatsapp} width="40" height="40" alt="Whatsapp"
-					class="hover:scale-110 transition-all duration-100 ease-in-out" />
-			</a>
-			<a href="https://www.instagram.com/kishorekumark22/" target="_blank">
-				<Image src={insta} width="40" height="40" alt="Instagram"
-					class="hover:scale-110 transition-all duration-100 ease-in-out" />
-			</a>
-			<a href="https://www.linkedin.com/in/kkube/" target="_blank">
-				<Image src={linkedin} width="40" height="40" alt="Linkedin"
-					class="hover:scale-110 transition-all duration-100 ease-in-out" />
-			</a>
-		</div>
-	</nav>
+<Layout title="Kishore Kumar K - K3 Blogs"/>
 	<!-- Hero Container -->
 	<section class="flex flex-col justify-center items-center">
 		<Image
 			src={"https://media.licdn.com/dms/image/v2/D5603AQF5j8N1QOTf-g/profile-displayphoto-shrink_400_400/B56ZV7sFUAGQAk-/0/1741536909785?e=1755734400&v=beta&t=VVf3jUL5nZXeWQJArYU7GLWSZ8p9xdJPERF45Jm1sQg"}
 			alt="Hero" height={300} width={300} class="rounded-full mt-20" />
-		<p class="mt-10 font-sans max-w-[25rem] text-justify" >
+		<p class="mt-10 max-w-[25rem] text-justify font-serif" >
 			This is my blog. It exists. Sometimes it's code. 
 			Sometimes it's just life. but honestlyy? it's a mess. 
-			I write things when I should be sleeping ¯\_(ツ)_/¯.
+			I generally write things when I should be sleeping.
 		</p>
+		<span class="text-center">¯\_(ツ)_/¯</span>
+
 	</section>
-	<div class="border border-gray-300 mt-20 mx-4"></div>
+	<div class="border border-gray-300 mt-20 "></div>
 	<!-- Blogs -->
 	<section class="mt-10">
 		<ul class="flex flex-col gap-5">
 			{blogs.map(blog=>(
-				<a href={blog.link} class="p-5 group block">
+				<a href={blog.link} class="m-5 my-10 group block">
 				<li class="ml-6">
 					<h1 class="text-2xl">
 					{blog.title}
 					</h1>
-					<div class="flex items-center space-x-2 text-sm text-gray-600">
+					<div class="flex items-center space-x-2 text-sm text-white">
 					<span class="text-lg">{blog.cat}</span>
 					<span class="w-1 h-1 bg-black rounded-full inline-block"></span>
 					<span class="text-lg">{blog.date}</span>
@@ -106,22 +55,4 @@ const blogs=[
 			))}
 		</ul>
 	</section>
-	<!-- Footer -->
-	<footer class="mx-2">
-		<div class="border border-gray-300 mt-15 mx-4"></div>
-		<p class="mt-10 mx-4">
-			Subscribe to my news letter <br>
-			I wont spam i swear, I rarely write blogs anyways lol.
-		</p>
-		<button class="flex items-center justify-center mt-5 bg-gray-500 p-3 rounded-lg gap-3 mx-4">
-			<Image src={rocket} alt="rocket" width={25} height={25}/>
-			Subscribe!
-		</button>
-		<div class="border border-gray-300 mt-20 mx-4"></div>
-		<h1 class="my-10 mb-20 mx-4">
-			Thanks for scrolling till here!
-		</h1>
-	</footer>
-</body>
-
-</html>
+</Layout>

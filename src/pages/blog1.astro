@@ -1,13 +1,61 @@
 ---
+import '../styles/global.css'
+import favicon from '../favicon.ico' 
+import { Image } from 'astro:assets'
+import whatsapp from '../whatsapp.svg'
+import linkedin from '../linkedin.svg'
+import insta from '../insta.svg'
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8" />
+	<link rel="icon" href={favicon} type="image/x-icon"/>
+	<meta name="viewport" content="width=device-width" />
+	<meta name="generator" content={Astro.generator} />
+	<title>K3 Blogs - A Fresher's take on "vibe coding"</title>
+	<style type="text/css">
+		body {
+			margin: 40px auto;
+			margin-top: 0px;
+			max-width: 720px;
+			line-height: 1.6;
+			font-size: 18px;
+			/* color: #444; */
+			padding: 0 10px
+		}
+
+		h1,
+		h2,
+		h3 {
+			line-height: 1.2
+		}
+	</style>
+
 </head>
-<body>
+<body class="min-h-[200vh]">
+    <nav class="flex justify-between px-5 pt-[40px]">
+		<div class="flex justify-center items-center gap-2">
+			<Image src={favicon} width="40" height="40" alt="Logo"
+				class="hover:scale-110 transition-all duration-100 ease-in-out" />
+			<h1 class="text-3xl font-serif"> Blogs</h1>
+		</div>
+		<!-- Socials -->
+		<div class="flex">
+			<a href="https://wa.me/+918124075301" target="_blank">
+				<Image src={whatsapp} width="40" height="40" alt="Whatsapp"
+					class="hover:scale-110 transition-all duration-100 ease-in-out" />
+			</a>
+			<a href="https://www.instagram.com/kishorekumark22/" target="_blank">
+				<Image src={insta} width="40" height="40" alt="Instagram"
+					class="hover:scale-110 transition-all duration-100 ease-in-out" />
+			</a>
+			<a href="https://www.linkedin.com/in/kkube/" target="_blank">
+				<Image src={linkedin} width="40" height="40" alt="Linkedin"
+					class="hover:scale-110 transition-all duration-100 ease-in-out" />
+			</a>
+		</div>
+	</nav>
     
 </body>
 </html>

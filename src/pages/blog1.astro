@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import img1 from "../AivsNoAi.svg"
 import { Image } from "astro:assets";
+import rocket from '../rocket.svg'
 ---
 <Layout title="K3 Blogs - Making sense of Vibe Coding as a fresher">
 	<section class="flex justify-center flex-col items-center mt-6 sm:mt-10 px-4">
@@ -174,6 +175,21 @@ api/
 			The future belongs to developers who can seamlessly blend human creativity with AI efficiency—not those who depend entirely on either one. So vibe away, but keep one foot grounded in the fundamentals. Your future self (and your production servers) will thank you.
 		</p>
 	</section>
+	<footer class=" mt-15">
+		<div class="border border-gray-300 "></div>
+		<p class="mt-10 ">
+			Subscribe to my news letter <br>
+			I wont spam i swear, I rarely write blogs anyways lol.
+		</p>
+		<button class="flex items-center justify-center mt-5 bg-gray-500 p-3 rounded-lg gap-3">
+			<Image src={rocket} alt="rocket" width={25} height={25}/>
+			Subscribe!
+		</button>
+		<div class="border border-gray-300 mt-20"></div>
+		<h1 class="my-10 mb-20">
+			Thanks for scrolling till here!
+		</h1>
+	</footer>
 	<style>
 		@keyframes fadeUp {
 			0% {

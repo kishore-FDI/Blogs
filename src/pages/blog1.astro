@@ -10,12 +10,15 @@ import claudeslop from "../claudeslop.mp4";
 ---
 
 <Layout title="K3 Blogs - Making sense of Vibe Coding as a fresher">
-  <section class="flex justify-center flex-col items-center mt-6 sm:mt-10 px-4">
+  <section
+    class="flex justify-center flex-col items-center mt-6 sm:mt-15 px-2 sm:px-4">
     <h1
-      class="text-2xl sm:text-3xl lg:text-4xl font-serif text-center leading-tight">
-      Trying to make sense of "vibe coding" <br class="hidden sm:block" />
+      class="text-2xl sm:text-4xl font-serif text-center leading-tight break-words">
+      Trying to make sense of <br /> "vibe coding" <br
+        class="hidden sm:block"
+      />
       <span
-        class="font-sans mt-3 sm:mt-5 flex flex-col sm:flex-row items-center justify-center text-base sm:text-lg lg:text-xl gap-2 sm:gap-3 text-gray-600">
+        class="font-sans mt-2 sm:mt-5 flex flex-col sm:flex-row items-center justify-center text-sm sm:text-lg lg:text-xl gap-1 sm:gap-3 text-gray-600">
         <p>Apr 19, 2025</p>
         <span class="hidden sm:block size-1 bg-gray-600 rounded-full"></span>
         <p>15 mins read</p>
@@ -50,38 +53,41 @@ import claudeslop from "../claudeslop.mp4";
   </div>
 
   <section class="px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-    <h1 class="text-xl sm:text-2xl mt-5 mb-3">
-      So... what is <b class="text-white">"Vibe Coding"</b>? <br />
+    <h1 class="text-xl sm:text-2xl text-white font-semibold mt-8">
+      So... what is "Vibe Coding"? <br />
     </h1>
-    <p class="text-base sm:text-lg leading-7 sm:leading-9">
+    <p class="text-lg sm:text-xl leading-7 sm:leading-9 mt-6">
       As <a
         class="text-white underline break-words"
         target="_blank"
         href="https://x.com/karpathy/status/1886192184808149383?lang=en"
         >Andrej Karpathy</a
       > put it:
-      <em
-        >"There's a new kind of coding I call '<span class="text-white"
-          >vibe coding</span
-        >', where you fully give in to the vibes, embrace exponentials, and <b
-          class="text-white">forget that the code even exists.</b
-        >"</em
+      <span
+        >"There's a new kind of coding I call '<span>vibe coding</span>', where
+        you fully give in to the vibes, embrace exponentials, and forget that
+        the code even exists."</span
       >
-      <br />
-      What I interpret from his quote is that <span class="text-white"
+    </p>
+    <p class="text-lg sm:text-xl leading-7 sm:leading-9 mt-8">
+      What I interpret from his quote is that <span
         >vibe coding is a mindset—where a developer is letting intuition lead
         the way and trusting your tooling and experience to fill in the gaps
         later.</span
-      > This means ignoring (at least temporarily):
-      <ol class="list-decimal ml-4 sm:ml-6 mt-2 space-y-1">
-        <li>Code structure or schematics like doing clean code</li>
-        <li>Scaling and costs</li>
-        <!-- <li>Typing Speed and code navigation</li> -->
-        <li>Code maintainence, etc</li>
-      </ol>
+      >
     </p>
-    <p class="mt-3 text-base sm:text-lg leading-7 sm:leading-9">
-      This allows the developer to develop way faster and a lot quicker. <br />
+    <p class="text-lg sm:text-xl leading-7 sm:leading-9 mb-8">
+      This means ignoring (at least temporarily):
+    </p>
+    <ol class="list-decimal ml-4 sm:ml-6 mt-2 space-y-1 text-lg sm:text-xl">
+      <li>Code structure or schematics like doing clean code</li>
+      <li>Scaling and costs</li>
+      <li>Code maintainence, etc</li>
+    </ol>
+    <p class="text-lg sm:text-xl leading-7 sm:leading-9 mt-4">
+      This allows the developer to develop way faster and a lot quicker.
+    </p>
+    <p class="text-lg sm:text-xl leading-7 sm:leading-9 mt-8">
       As <a href="#" target="_blank" class="underline font-bold text-white"
         >Theo</a
       > said, these AI Tools allows the new <b class="font-bold text-white"
@@ -89,124 +95,126 @@ import claudeslop from "../claudeslop.mp4";
       > to push out code now without having to worry about time spent on architecting,
       typing speed, lack of tooling knowledge, accessibility issues, etc. Which is
       great because a lot of people will now be happy to learn coding as it is more
-      accessible now
+      accessible now.
     </p>
 
-    <h1 class="mt-5 text-xl sm:text-2xl text-white font-semibold"
+    <h1 class="mt-8 text-2xl sm:text-2xl text-white font-semibold"
       >Impacts of Vibe coding and AI tools</h1
     >
-    <div class="mt-6 sm:mt-8 w-full overflow-hidden">
+    <div class="mt-8 sm:mt-8 w-full overflow-hidden">
       <Image src={img1} alt="Image 1" class="w-full h-auto max-w-full" />
     </div>
 
-    <p class="mt-5 text-base sm:text-lg leading-7 sm:leading-9">
+    <p class="mt-8 text-lg sm:text-xl leading-7 sm:leading-9">
       This is a practical depiction of the experience many freshers have. With
       the accessibility of platforms like Vercel or Netlify and databases like
       MongoDB Atlas, it's now easier than ever to deploy projects and experiment
       with new ideas. These tools help new developers reach the "I can do that"
       stage much faster, making coding more approachable and enjoyable for
-      everyone.<br /><br />
-      But When the application breaks , the tools that helped them would suffer from
-      parsing the code base and it would be too complex to just look it up in Google.<br
-      /><br />
+      everyone.
+    </p>
+    <p class="mt-8 text-lg sm:text-xl leading-7 sm:leading-9">
+      But When the application breaks, the tools that helped them would suffer
+      from parsing the code base and it would be too complex to just look it up
+      in Google.
+    </p>
+    <p class="mt-8 text-lg sm:text-xl leading-7 sm:leading-9">
       The <span class="text-red-700">developer</span> will reach to the "I can fix
-      it" stage faster <span class="text-green-700">developer</span> that is untill
-      their tools hit their parsing limit and one of these things happens
-      <ol class="list-decimal ml-6 my-6">
-        <li
-          >They brand the issue as a "quirk" - like making everything
-          client-rendered because it's just easy
-        </li>
-        <li>
-          This is a Sr. Engineer level problem - like handling a collabrative UI
-          where changes occurs from different source (Real-Time DB like firebase
-          or convex should have solved it or a small self-build sync layer)
-        </li>
-        <li>
-          "The code is too complex , I will just re-write it" and they spend
-          hours making the same thing while adding the issue in the prompt "do
-          this but make sure X never happens"
-        </li>
-        <li>Or they just drop the project.</li>
-      </ol>
-      <!-- <br /><br /> -->
+      it" stage faster <span class="text-green-700">developer</span> that is until
+      their tools hit their parsing limit and one of these things happens:
+    </p>
+    <ol class="list-decimal ml-6 my-6 text-lg sm:text-xl">
+      <li
+        >They brand the issue as a "quirk" - like making everything
+        client-rendered because it's just easy</li
+      >
+      <li
+        >This is a Sr. Engineer level problem - like handling a collabrative UI
+        where changes occurs from different source (Real-Time DB like firebase
+        or convex should have solved it or a small self-build sync layer)</li
+      >
+      <li
+        >"The code is too complex , I will just re-write it" and they spend
+        hours making the same thing while adding the issue in the prompt "do
+        this but make sure X never happens"</li
+      >
+      <li>Or they just drop the project.</li>
+    </ol>
+    <p class="mb-4 text-lg sm:text-xl leading-7 sm:leading-9">
       Meanwhile <span class="text-green-700">developer</span> will take a long time
-      to reach their but once they reach it <span class="text-white"
+      to reach there but once they reach it <span class="text-white"
         >they will know where to find the solution or what is causing the issue
         or how to swap in the components that will solve the problems</span
-      >
-      <br /><br />
-      <!-- <h1 class="text-white text-2xl mb-6">Imbalance </h1>
-      This shift also brings new dynamics to the recruitment process. AI tools can
-      help candidates quickly build awesome resumes and learn awesome technologies
-      as well. While this is a great as things are more accessible to the general
-      public, it also highlights the importance of building a strong foundation in
-      core skills. Companies and new developers alike are adapting to this evolving
-      landscape, and it's an exciting time to be part of the industry.<br /><br
-      /> -->
-      I've often been approached with questions like:
-      <ul class="list-disc ml-4 sm:ml-6 space-y-2 mt-2">
-        <li
-          >Why does my text look so weird everywhere? (They weren't familiar
-          with CSS resets)</li
-        >
-        <li
-          >I made a mobile app—how do I install it on my phone? (They used an AI
-          editor to create an app in JS, but were aiming for a native mobile
-          app)</li
-        >
-        <li>The infamous - How do I center this component?</li>
-      </ul>
+      >.
     </p>
+    <p class="mb-4 text-lg sm:text-xl leading-7 sm:leading-9">
+      I've often been approached with questions like:
+    </p>
+    <ul class="list-disc ml-4 sm:ml-6 space-y-2 mt-2 text-lg sm:text-xl">
+      <li
+        >Why does my text look so weird everywhere? (They weren't familiar with
+        CSS resets)</li
+      >
+      <li
+        >I made a mobile app—how do I install it on my phone? (They used an AI
+        editor to create an app in JS, but were aiming for a native mobile app)</li
+      >
+      <li>The infamous - How do I center this component?</li>
+    </ul>
 
     <h1 class="mt-6 text-xl sm:text-2xl text-white font-semibold"
       >The Unintended Consequences: Free Tier Exploitation by AI-Generated Code</h1
     >
-    <p class="mt-5 text-base sm:text-lg leading-7 sm:leading-9">
-      <span class="text-white"
-        >One of the less talked about side effects of tools like Loveable,
-        Cursor, and other AI coding assistants is the sheer volume of code and
-        projects they enable users to deploy—often with little regard for
-        resource usage.</span
-      >
-      This has led to a kind of unintentional exploitation of the generous free tiers
-      offered by platforms like <b class="text-white">Vercel</b>, <b
+    <p class="mt-5 text-lg sm:text-xl leading-7 sm:leading-9 mb-4">
+      One of the less talked about side effects of tools like Loveable, Cursor,
+      and other AI coding assistants is the sheer volume of code and projects
+      they enable users to deploy—often with little regard for resource usage.
+    </p>
+    <p class="mb-4 text-lg sm:text-xl leading-7 sm:leading-9">
+      This has led to a kind of unintentional exploitation of the generous free
+      tiers offered by platforms like <b class="text-white">Vercel</b>, <b
         class="text-white">Turso</b
       >, <b class="text-white">PlanetScale</b>, <b class="text-white"
         >Supabase</b
-      >, and more.<br /><br />
-      For example, Loveable's GitHub was shut down after it was found to be creating
-      around 5,000 deployments every hour, overwhelming free hosting providers. PlanetScale
-      had to discontinue their free tier, a move that many suspect was at least partly
-      due to the surge in automated, AI-generated projects. Firestore's free cloud
-      storage has quietly moved to a paid tier, and similar changes are happening
-      across the industry.<br /><br />
-      <span class="text-white"
-        >While these tools democratize development, they also make it easy to
-        spin up countless projects with a single click, often without users
-        understanding the real-world costs or limitations.</span
-      > The result? Service providers are forced to clamp down, making it harder
-      for genuine hobbyists and learners to access free resources.<br /><br />
+      >, and more.
+    </p>
+    <p class="mb-4 text-lg sm:text-xl leading-7 sm:leading-9">
+      For example, Loveable's GitHub was shut down after it was found to be
+      creating around 5,000 deployments every hour, overwhelming free hosting
+      providers. PlanetScale had to discontinue their free tier, a move that
+      many suspect was at least partly due to the surge in automated,
+      AI-generated projects. Firestore's free cloud storage has quietly moved to
+      a paid tier, and similar changes are happening across the industry.
+    </p>
+    <p class="mb-4 text-lg sm:text-xl leading-7 sm:leading-9">
+      While these tools democratize development, they also make it easy to spin
+      up countless projects with a single click, often without users
+      understanding the real-world costs or limitations. The result? Service
+      providers are forced to clamp down, making it harder for genuine hobbyists
+      and learners to access free resources.
     </p>
 
     <h1 class="mt-6 text-xl sm:text-2xl text-white font-semibold"
       >My Personal Experience with these AI tools</h1
     >
-    <p class="mt-5 text-base sm:text-lg leading-7 sm:leading-9">
+    <p class="mt-5 text-lg sm:text-xl leading-7 sm:leading-9 mb-4">
       Once again as Theo said, these AI tools are great because they allow new
-      developers to make products which would not have been possible otherwise. <br
-      /><br />
-      But this is only true in the short term because as time goes on, these products
-      tend to break and the same tools that helped them build these products will
-      start to struggle due to the amount of code that it needs to parse. <br
-      /><br />
-      I had issues like Cursor started to make components directory inside each route
-      of my app router next.js project:
+      developers to make products which would not have been possible otherwise.
+    </p>
+    <p class="mb-4 text-lg sm:text-xl leading-7 sm:leading-9">
+      But this is only true in the short term because as time goes on, these
+      products tend to break and the same tools that helped them build these
+      products will start to struggle due to the amount of code that it needs to
+      parse.
+    </p>
+    <p class="mb-4 text-lg sm:text-xl leading-7 sm:leading-9">
+      I had issues like Cursor started to make components directory inside each
+      route of my app router next.js project:
     </p>
 
     <div class="mt-4 overflow-x-auto">
       <pre
-        class="bg-gray-900 text-gray-100 p-4 rounded-lg text-xs sm:text-sm whitespace-pre overflow-x-auto min-w-0">
+        class="bg-gray-900 text-gray-100 p-4 rounded-lg text-xs sm:text-sm whitespace-pre overflow-x-auto min-w-0 max-w-full mb-4">
 app/
 ├── layout.tsx
 ├── page.tsx
@@ -223,42 +231,46 @@ app/
       >
     </div>
 
-    <p class="mt-4 text-base sm:text-lg leading-7 sm:leading-9">
+    <p class="mt-4 text-lg sm:text-xl leading-7 sm:leading-9 mb-4">
       During a Hackathon our site kept breaking down and after I went through
       the code we found out that cursor thought we were using pages router while
-      in actuality we were using app router. <br /><br />
-      It helped me write a logic to sync up the client and server data in Indexed
-      DB but when I wanted it to port from static JSON to mongoDB, it just couldn't.
+      in actuality we were using app router.
     </p>
-
-    <!-- <h1 class="text-xl sm:text-2xl text-white mt-6 font-semibold"
-      >The current state of AI tools</h1
-    > -->
-    <p class="mt-6 text-base sm:text-lg leading-7 sm:leading-8">
+    <p class="mb-4 text-lg sm:text-xl leading-7 sm:leading-9">
+      One more example was when I was lazily loading a JSON from the server and
+      it was only loaded when the client already didnt had the data in their
+      browser. Cursor helped me write a logic to sync up the client and server
+      data in Indexed DB but when I wanted it to port from static JSON to
+      mongoDB, it just couldn't because of the parsing issue.
+    </p>
+    <p class="mt-6 text-lg sm:text-xl leading-7 sm:leading-8">
       <span class="text-white"
         >This is the effects of AI-Assisted Coding on younger generation:</span
       >
       <b class="text-white"
         >AI produces way too much code than anyone bothers to read and review.</b
-      >
+      > because if I saw how the sync was built I would have refactored it easily.
       <br /><br />
-      I wish i could link the images but i couldn't find them. i asked <a
-        href="Claude.ai"
-        target="_blank">Claude.ai</a
-      > to make a simple dashboard page and it gave me like 1.5k lines of code. For
-      a new developer this is 1.5 lines of code they can ship. I just copy pasted
-      it with little thought then when i checked the site it started to lag because
-      of the charts and re-rending
+      Once I asked <span>Claude.ai</span> to make a simple dashboard page and it
+      gave me like 1.5k lines of code. For a new developer this is 1.5 lines of code
+      they can ship. I just copy pasted it with little thought then when I checked
+      the site it started to lag because of the charts and re-rending
+      <br />
+      <br />
+      <br />
       <video autoplay loop muted playsinline>
         <source src={claudeslop} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      I am not dunking on claude at all . i would have never wrote those many lines
-      of code myself. I later added even more charts but used code spiltting and
-      proper categorization and lazy loading to get the job done but in loveable
-      it was worse. I gave it some figma frames and asked it make it (I wanted a
-      starting point so i can re-factor) the tailwind css it made was hard for me
-      to re-factor
+      <br />
+      <br />
+      I am not dunking on claude at all . I would have never wrote those many lines
+      of code myself so it is a win for me to have claude do this work for me. I
+      later added even more charts but used code spiltting and proper categorization
+      and lazy loading to get the job done and prevented this lag <br />
+      <br /> loveable it was worse. I gave it some figma frames and asked it make
+      it (I wanted a starting point so I can re-factor) the tailwind css it made
+      was hard for me to re-factor
       <Image src={lovableoutput} sizes="100%" alt="Lovable" class="my-5" />
       <span> Some of the issues </span>
       <ol class="list-decimal ml-6">
@@ -280,59 +292,65 @@ app/
       > This code doesn't look like it has alot of issues but it had around 50 components
       and me trying to go through them one by one to make sure everything was working
       was hard<br /><br />
-    </p>
 
-    <p class="mt-4 text-base sm:text-lg leading-7 sm:leading-8">
-      The worst of all was when I was having trouble with a package. The package
-      I wanted to use was in python but I am doing the development in kotlin and
-      I didn't want to spin up a server to do the processing. <br /><br />
-      After testing out the recommendations that ChatGPT gave, it concluded that
-      the only feasible way was for me to convert my <b class="text-white"
-        >.py</b
-      > to <b class="text-white">.c</b> using <b class="text-white">Cython</b> then
-      to <b class="text-white">.so</b> and only then embed it into the kotlin app.
-    </p>
+      <p class="mt-4 text-lg sm:text-xl leading-7 sm:leading-8">
+        The worst of all was when I was having trouble with a package. The
+        package I wanted to use was in python but I am doing the development in
+        kotlin and I didn't want to spin up a server to do the processing. <br
+        /><br />
+        After testing out the recommendations that ChatGPT gave like using chaquopy(but
+        I was doing ffmpeg) , start a HTTP server using termux evertime I want to
+        use the app, Have a dedicated server , etc. it concluded that the only feasible
+        way was for me to convert my <b class="text-white">.py</b> to <b
+          class="text-white">.c</b
+        > using <b class="text-white">Cython</b>
+        then to <b class="text-white">.so</b> and only then embed it into the kotlin
+        app.
+      </p>
 
-    <div class="mt-4 overflow-x-auto">
-      <pre
-        class="bg-gray-900 text-gray-100 p-4 rounded-lg text-xs sm:text-sm whitespace-pre text-center">
+      <div class="mt-4 overflow-x-auto">
+        <pre
+          class="bg-gray-900 text-gray-100 p-4 rounded-lg text-xs sm:text-sm whitespace-pre text-center max-w-full mb-4">
 .py → .c → .so → kotlin via a plugin</pre
+        >
+      </div>
+      <p class="my-6"
+        >Or I should just re-write the package in kotlin. But in truth the
+        package itself provided a method to return the JSON needed to perform
+        the task in any language but chatgpt or cursor or claude.ai didnt bother
+        tell me even though I asked them particular about ways to do this
+        serverless so I can go with vercel. This allowed me to just spin up a
+        python server in the vercel and get the data needed and process it in
+        the mobile app itself.</p
       >
-    </div>
-    <p class="my-6"
-      >Or i should just re-write the package in kotlin. But in truth the package
-      itself provided a method to return the JSON needed to perform the task in
-      any language, This allowed me to just spin up a python server in the
-      vercel and get the data needed and process it in the mobile app itself.</p
-    >
-    <p class="my-6">
-      I finally did some reading and testing and was ready to finally deploy the
-      service in a serverless manner. What the service will do is create a
-      browser agent and crawl the targets and provide me the data so i can
-      process in client using ffmpeg. But i forgot how to setup python for
-      vercel so i asked cursor to generate/give me instructions to create a file
-      structure for python vercel
-      <div class="mt-4 space-y-4">
-        <div>
-          <p class="text-sm sm:text-base mb-2 text-gray-300"
-            >This was the file structure it gave:</p
-          >
-          <div class="overflow-x-auto">
-            <pre
-              class="bg-gray-900 text-gray-100 p-4 rounded-lg text-xs sm:text-sm whitespace-pre overflow-x-auto min-w-0">
+      <p class="my-6">
+        I finally did some reading and testing and was ready to finally deploy
+        the service in a serverless manner. What the service will do is create a
+        browser agent and crawl the targets and provide me the data so I can
+        process in client using ffmpeg. But I forgot how to setup python for
+        vercel so I asked cursor to generate/give me instructions to create a
+        file structure for python vercel
+        <div class="mt-4 space-y-4">
+          <div>
+            <p class="text-sm sm:text-base mb-2 text-gray-300"
+              >This was the file structure it gave:</p
+            >
+            <div class="overflow-x-auto">
+              <pre
+                class="bg-gray-900 text-gray-100 p-4 rounded-lg text-xs sm:text-sm whitespace-pre overflow-x-auto min-w-0 max-w-full mb-4">
   api/
     main.py
     requirements.txt
     vercel.json</pre
-            >
-          </div>
-        </div>
+              >
+            </div>
 
-        <div>
-          <p class="text-sm sm:text-base mb-2 text-gray-300">vercel.json:</p>
-          <div class="overflow-x-auto">
-            <pre
-              class="bg-gray-900 text-gray-100 p-4 rounded-lg text-xs sm:text-sm whitespace-pre overflow-x-auto min-w-0">
+            <div>
+              <p class="text-sm sm:text-base mb-2 text-gray-300">vercel.json:</p
+              >
+              <div class="overflow-x-auto">
+                <pre
+                  class="bg-gray-900 text-gray-100 p-4 rounded-lg text-xs sm:text-sm whitespace-pre overflow-x-auto min-w-0 max-w-full mb-4">
   {`{
     "version": 3,
     "routes": [
@@ -340,214 +358,238 @@ app/
     ]
   }`}
   </pre>
+              </div>
+            </div>
           </div>
+          The issue? It does not work. The file structure meant that and the path
+          to the main <code>.py</code> file was accurate but everything else is totally
+          incorrect. I even asked the tools to <code
+            >PLEASE GO THROUGH INTERNET AND RELAVENT EXAMPLES FROM THE VERCEL
+            THEMSELVES AND CORRECT THE ISSUES.</code
+          >In cursor and it didn't work then I just browsed and copied the files
+          from the vercel's repo.
         </div>
-      </div>
-      The issue? It does not work. The file structure meant that and the path to
-      the main <code>.py</code> file was accurate but everything else is totally
-      incorrect. I even asked the tools to <code
-        >PLEASE GO THROUGH INTERNET AND RELAVENT EXAMPLES FROM THE VERCEL
-        THEMSELVES AND CORRECT THE ISSUES.</code
-      >In cursor and it didn't work then i just browsed and copied the files
-      from the vercel's repo.
-    </p>
 
-    <p class="mt-6">
-      I know I should not be complaning given what these tools are meant to do <code
-        >LLMs are statistical models that are meant to produce the next piece of
-        token (may it be code , texts or pixels) given the context based of
-        statistics
-      </code>but that leads to the next issue which is These tools generally
-      provides the "what," but not the "why" comes with experience and
-      curiosity.
-      <br /><br />
-    </p>
-    <h1 class="text-xl sm:text-2xl text-white mt-6 font-semibold"
-      >The Learning Curve Dilemma</h1
-    >
-    <p class="mt-3 text-base sm:text-lg leading-7 sm:leading-8">
-      <span class="text-white"
-        >Here's the thing that bothers me most about the current AI coding
-        landscape:</span
-      >
-      <b class="text-white"
-        >we're creating a generation of developers who can build but can't
-        debug.</b
-      >
-      <br /><br />
-      When your AI tool generates 200 lines of code in seconds, you miss out on the
-      gradual learning process that comes with writing it yourself. You don't understand
-      why certain patterns exist, what trade-offs were made, or how to troubleshoot
-      when things inevitably break. <br /><br />
-      I've seen this firsthand with friends who can spin up a full-stack app in a
-      weekend but then spend weeks trying to figure out why their deployment keeps
-      failing or why their database queries are slow. The AI gave them the "what"
-      but not the "why." <br /><br />
-      The issue is that the general public does not treat AI as a powerful assistant—like
-      a calculator for an accountant or how we use vercel to let it handle alot of
-      our deployment problems — instead a drop-in replacement.
-      <Image
-        src={theo}
-        alt="Theo Explaining why positions for junior devs are not avaliable anymore"
-        class="mt-6"
-      />
-      <br />
-      Here in his recent video, Theo explained how you could have built Twitch's
-      Mod View in a more cost-efficient way using Claude. While that's technically
-      impressive, I believe his take — that this approach is the future and inherently
-      better — is biased, shaped heavily by his experience at his startup, ping.gg.
-      <br />
-      <br />
-      I believe his bias comes from working in a small team like his, shipping fast
-      is crucial. In that context, having a powerful coding assistant like Claude
-      might feel more productive than hiring new engineers. Reviews are mostly automated
-      through tools like Code Rabbit or Graphite. He doesn't write many tests either
-      — because he knows he'll be the one maintaining the code. That works for him.
-      But that doesn't translate well into larger engineering teams or enterprise
-      environments, where code longevity, maintainability, and shared ownership are
-      critical.
-      <br />
-      <br />
-      More importantly, the argument itself is flawed. Sure, AI can generate code
-      — even enough for 2–3 people's worth of work. But that just means you now have
-      3x the code to review, test, and maintain. You've shifted the burden, not eliminated
-      it. It's like saying calculators replace accountants. No — they assist them.
-      If you're good at finance, you can probably handle your own books, but now
-      you've added a responsibility on top of everything else. That's not a bad thing!
-      It can be great to move fast and build solo — especially when you're experienced
-      enough to handle the whole stack. <br /><br />But this costs the company
-      money in terms of how his hours are spent and the chances to pinoneer new
-      ideas and come up something creative is lost along the way.
-      <br /><br />
-      Having a junior dev here would go something like , You generate your code with
-      AI and they generate their code with AI and both of you review your codes but
-      then the senior has to review the junior dev's code too. Which , in retrospect,
-      is a in-efficiency but as i showed above the AI tools are nowhere near to do
-      simplest of tasks <span class="text-white">Consistently corrent.</span> This
-      gets even more harder when the AI have to parse through a big code base. tRPC
-      , convex , shadCN , etc solve this issues with providing easier abstractions
-      for the AI which theo also uses , the older code bases in production is not
-      the same.
-      <br /><br />
-      I am greatly in-debt for Theo , my hero , for that video but these ideas will
-      lead to having less people get into the field and have it saturated with same
-      ideas and eventually lead to what <a
-        href="https://www.youtube.com/shorts/-TyEY4-lbfI"
-        target="_blank"
-        class="underline">Pirate Software</a
-      > has said
-      <br />
-      <br />
-      Some tips for new devs to use AI:
-      <ol class="list-decimal ml-4 sm:ml-6 mt-2 space-y-1">
-        <li
-          >Let AI write the boilerplate, but <span class="text-white"
-            >read and understand. If possbile just make a package to be less
-            reliant on AI</span
-          ></li
+        <p class="mt-6">
+          I know I should not be complaningbecause these tools are doing what
+          they were designed to do which isd <code
+            >LLMs are statistical models that are meant to produce the next
+            piece of token (may it be code , texts or pixels) given the context
+            based of statistics
+          </code>but that leads to the next issue which is These tools generally
+          provides the "what," but not the "why" comes with experience and
+          curiosity.
+          <br /><br />
+        </p>
+        <h1 class="text-xl sm:text-2xl text-white mt-6 font-semibold"
+          >The Learning Curve Dilemma</h1
         >
-        <li
-          >Ask the AI to explain Individual/complex sections while copying them</li
-        >
-        <li
-          >Engage with the development community to learn from others and get
-          help when needed</li
-        >
-        <li
-          >Treat these tools as an extension of your knowledge, and embrace
-          failiures and ready to hope off the AI Code wagon to fix the issue
-          yourself</li
-        >
-      </ol>
-    </p>
+        <p class="text-lg sm:text-xl leading-7 sm:leading-9 mb-4">
+          <span class="text-white">
+            Here's the thing that bothers me most about the current AI coding
+            landscape:
+          </span>
+          <b class="text-white">
+            we're creating a generation of developers who can build but can't
+            debug.
+          </b>
+        </p>
+        <p class="text-lg sm:text-xl leading-7 sm:leading-9 mb-4">
+          When your AI tool generates 200 lines of code in seconds, you miss out
+          on the gradual learning process that comes with writing it yourself.
+          You don't understand why certain patterns exist, what trade-offs were
+          made, or how to troubleshoot when things inevitably break. <br /><br
+          />
+          I've seen this firsthand with friends who can spin up a full-stack app
+          in a weekend but then spend weeks trying to figure out why their deployment
+          keeps failing or why their database queries are slow. The AI gave them
+          the "what" but not the "why." <br /><br />
+          The issue is that the general public does not treat AI as a powerful assistant—like
+          a calculator for an accountant or how we use vercel to let it handle alot
+          of our deployment problems — instead a drop-in replacement.
+          <Image
+            src={theo}
+            alt="Theo Explaining why positions for junior devs are not avaliable anymore"
+            class="mt-6 w-full h-auto rounded-lg"
+          />
+          <br />
+          Here in his recent video, Theo explained how you could have built Twitch's
+          Mod View in a more cost-efficient way using Claude. Which i agree that
+          it could have been "cheaper" — is biased, shaped heavily by his experience
+          at his startup, ping.gg.
+          <br />
+          <br />
+          I believe his bias comes from working in a small team like his, shipping
+          fast is crucial. In that context, having a powerful coding assistant like
+          Claude might feel more productive than hiring new engineers. Reviews are
+          mostly automated through tools like Code Rabbit or Graphite. He doesn't
+          write many tests either — because he knows he'll be the one maintaining
+          the code. <br /><br />That works for him. But that doesn't translate
+          well into larger engineering teams or enterprise environments, where
+          code longevity, maintainability, and shared ownership are critical.
+          <br />
+          <br />
+          Having a junior dev here would go something like , You generate your code
+          with AI and they generate their code with AI and both of you review your
+          codes but then the senior has to review the junior dev's code too. Which
+          , in retrospect, is a in-efficiency but as I showed above the AI tools
+          are nowhere near to do simplest of tasks <span class="text-white"
+            >Consistently correct.</span
+          >
+          <br />
+          <br />
+          I believe in this video <a
+            class="underline"
+            href="https://www.youtube.com/watch?v=pQzwlzS2AT0"
+            target="_blank">Primeagen</a
+          >explained when he builts things like UI or some backend rust code
+          with AI they , on surface looks right and then he regrets using AI
+          immidietly afterwards so he re-writes it himself. Here a junior dev
+          could do this part for him. <br />
+          <br /> This gets even more harder when the AI have to parse through a big
+          code base.While tools like tRPC , convex , shadCN , etc solve this issues
+          with providing easier abstractions for the AI which theo also uses , the
+          older code bases in production is not the same.
+          <br />
+          <br />
+          More importantly, the argument itself is flawed. Sure, AI can generate
+          code — even enough for 2–3 people's worth of work. But that just means
+          you now have 3x the code to review, test, and maintain. You've shifted
+          the burden, not eliminated it. It's like saying calculators replace accountants.
+          No — they assist them.
 
-    <p class="mt-8"
-      ><i
-        >"Give a man the code and you feed him for a day. Teach a man to code
-        and you feed him for a lifetime"</i
-      ></p
-    >
-    <p class="mt-6">
-      PS lol
-      <Image src={cursorlol} alt="cursor mess up" />
-    </p>
-    <h1 class="text-xl sm:text-2xl text-white mt-6 font-semibold"
-      >Conclusion: Finding Balance in the AI Era</h1
-    >
-    <p class="mt-3 text-base sm:text-lg leading-7 sm:leading-8">
-      "Vibe coding" isn't inherently good or bad—it's a tool, and like any tool,
-      its value depends on how we use it. For experienced developers, it can be
-      liberating, allowing them to focus on high-level architecture and creative
-      problem-solving while AI handles the mundane implementation details. <br
-      /><br />
-      But for newcomers, it can be a double-edged sword. The same technology that
-      makes coding more accessible also makes it easier to build on shaky foundations.
-      The challenge for our generation is learning to harness AI's power while still
-      developing the fundamental skills that make us effective problem solvers. <br
-      /><br />
-      My advice? <span class="text-white"
-        >Embrace the vibe, but don't let it replace your curiosity.</span
-      >
-      Use AI to move faster, but take time to understand what you're building. Let
-      it handle the repetitive tasks, but make sure you can still code without it
-      when needed. <br /><br />
-      The future belongs to developers who can seamlessly blend human creativity
-      with AI efficiency—not those who depend entirely on either one. So vibe away,
-      but keep one foot grounded in the fundamentals. Your future self (and your
-      production servers) will thank you.
+          <br /><br />
+          I am greatly in-debt for Theo , my hero , for that video but these ideas
+          that juniors can be replaced by AI will lead to having less people get
+          into the field and have it saturated with same ideas and eventually lead
+          to what <a
+            href="https://www.youtube.com/shorts/-TyEY4-lbfI"
+            target="_blank"
+            class="underline">Pirate Software</a
+          > has said
+          <br />
+          <br />
+          <!-- Some tips for new devs to use AI:
+          <ol class="list-decimal ml-4 sm:ml-6 mt-2 space-y-1">
+            <li
+              >Let AI write the boilerplate, but <span class="text-white"
+                >read and understand. If possbile just make a package to be less
+                reliant on AI</span
+              ></li
+            >
+            <li
+              >Ask the AI to explain Individual/complex sections while copying
+              them</li
+            >
+            <li
+              >Engage with the development community to learn from others and
+              get help when needed</li
+            >
+            <li
+              >Treat these tools as an extension of your knowledge, and embrace
+              failiures and ready to hope off the AI Code wagon to fix the issue
+              yourself</li
+            >
+          </ol>
+        </p>
+
+        <p class="mt-8"
+          ><i
+            >"Give a man the code and you feed him for a day. Teach a man to
+            code and you feed him for a lifetime"</i
+          ></p
+        > -->
+          <p class="">
+            PS lol
+            <Image
+              src={cursorlol}
+              alt="cursor mess up"
+              class="w-full h-auto rounded-lg my-4"
+            />
+          </p>
+          <h1 class="text-xl sm:text-2xl text-white mt-6 font-semibold"
+            >Conclusion: Finding Balance in the AI Era</h1
+          >
+          <p class="mt-3 text-lg sm:text-xl leading-7 sm:leading-8">
+            "Vibe coding" isn't inherently good or bad—it's a tool, and like any
+            tool, its value depends on how we use it. For experienced
+            developers, it can be liberating, allowing them to focus on
+            high-level architecture and creative problem-solving while AI
+            handles the mundane implementation details. <br /><br />
+            But for newcomers, it can be a double-edged sword. The same technology
+            that makes coding more accessible also makes it easier to build on shaky
+            foundations. The challenge for our generation is learning to harness
+            AI's power while still developing the fundamental skills that make us
+            effective problem solvers.
+            <br /><br />
+            My advice? <span class="text-white"
+              >Embrace the vibe, but don't let it replace your curiosity.</span
+            >
+            Use AI to move faster, but take time to understand what you're building.
+            Let it handle the repetitive tasks, but make sure you can still code
+            without it when needed. <br /><br />
+            The future belongs to developers who can seamlessly blend human creativity
+            with AI efficiency—not those who depend entirely on either one. So vibe
+            away, but keep one foot grounded in the fundamentals. Your future self
+            (and your production servers) will thank you.
+          </p>
+        </p>
+        <footer class="mt-15">
+          <div class="border border-gray-300"></div>
+          <p
+            class="mt-10 text-base sm:text-lg leading-7 sm:leading-9 text-center px-2">
+            Subscribe to my news letter <br />
+            I wont spam I swear, I rarely write blogs anyways lol.
+          </p>
+          <button
+            class="flex items-center justify-center mt-5 bg-gray-500 p-3 rounded-lg gap-3 w-full max-w-xs mx-auto text-base sm:text-lg">
+            <Image src={rocket} alt="rocket" width={25} height={25} />
+            Subscribe!
+          </button>
+          <div class="border border-gray-300 mt-20"></div>
+          <h1 class="my-10 mb-20 text-center text-lg sm:text-xl">
+            Thanks for scrolling till here!
+          </h1>
+        </footer>
+        <style>
+          @keyframes fadeUp {
+            0% {
+              opacity: 0;
+              transform: translateY(24px);
+            }
+            100% {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+          #animated-card .word {
+            opacity: 0;
+            transform: translateY(24px);
+            animation: fadeUp 0.7s forwards;
+          }
+          #animated-card .word:nth-child(1) {
+            animation-delay: 0.1s;
+          }
+          #animated-card .word:nth-child(2) {
+            animation-delay: 0.7s;
+          }
+          #animated-card .word:nth-child(3) {
+            animation-delay: 1.3s;
+          }
+
+          pre {
+            word-wrap: break-word;
+            white-space: pre-wrap;
+          }
+
+          @media (max-width: 640px) {
+            pre {
+              font-size: 0.75rem;
+              line-height: 1.25;
+            }
+          }
+        </style>
+      </p>
     </p>
   </section>
-  <footer class="mt-15">
-    <div class="border border-gray-300"></div>
-    <p class="mt-10">
-      Subscribe to my news letter <br />
-      I wont spam i swear, I rarely write blogs anyways lol.
-    </p>
-    <button
-      class="flex items-center justify-center mt-5 bg-gray-500 p-3 rounded-lg gap-3">
-      <Image src={rocket} alt="rocket" width={25} height={25} />
-      Subscribe!
-    </button>
-    <div class="border border-gray-300 mt-20"></div>
-    <h1 class="my-10 mb-20"> Thanks for scrolling till here! </h1>
-  </footer>
-  <style>
-    @keyframes fadeUp {
-      0% {
-        opacity: 0;
-        transform: translateY(24px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    #animated-card .word {
-      opacity: 0;
-      transform: translateY(24px);
-      animation: fadeUp 0.7s forwards;
-    }
-    #animated-card .word:nth-child(1) {
-      animation-delay: 0.1s;
-    }
-    #animated-card .word:nth-child(2) {
-      animation-delay: 0.7s;
-    }
-    #animated-card .word:nth-child(3) {
-      animation-delay: 1.3s;
-    }
-
-    /* Ensure code blocks don't overflow on mobile */
-    pre {
-      word-wrap: break-word;
-      white-space: pre-wrap;
-    }
-
-    @media (max-width: 640px) {
-      pre {
-        font-size: 0.75rem;
-        line-height: 1.25;
-      }
-    }
-  </style>
 </Layout>

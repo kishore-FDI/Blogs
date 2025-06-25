@@ -1,74 +1,98 @@
 ---
-import '../styles/global.css'
-import Layout from '../layouts/Layout.astro'
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import rocket from '../rocket.svg'
-const blogs=[
-	{
-		title:"A Fresher's take on \"vibe coding\"",
-		link:"/blog1",
-		cat:"Dev",
-		date:"19-06-2025",
-		read:"15 min"
-	},
-]
-
+import rocket from "../rocket.svg";
+const blogs = [
+  {
+    title: 'A Fresher\'s take on "vibe coding"',
+    link: "/blog1",
+    cat: "Dev",
+    date: "19-06-2025",
+    read: "25 min",
+  },
+  {
+    title: "Making sense of Web Rendering",
+    link: "/blog2",
+    cat: "Dev",
+    date: "26-06-2025",
+    read: "25mins",
+  },
+];
 ---
 
-<Layout title="Kishore Kumar K - K3 Blogs"/>
-	<!-- Hero Container -->
-	<section class="flex flex-col justify-center items-center">
-		<Image
-			src={"https://media.licdn.com/dms/image/v2/D5603AQF5j8N1QOTf-g/profile-displayphoto-shrink_400_400/B56ZV7sFUAGQAk-/0/1741536909785?e=1755734400&v=beta&t=VVf3jUL5nZXeWQJArYU7GLWSZ8p9xdJPERF45Jm1sQg"}
-			alt="Hero" height={300} width={300} class="rounded-full mt-20" />
-		<p class="mt-10 max-w-[25rem] text-justify font-serif" >
-			This is my blog. It exists. Sometimes it's code. 
-			Sometimes it's just life. but honestlyy? it's a mess. 
-			I generally write things when I should be sleeping.
-		</p>
-		<span class="text-center">¯\_(ツ)_/¯</span>
+<Layout title="Kishore Kumar K - K3 Blogs" />
+<!-- Hero Container -->
+<section class="flex flex-col justify-center items-center p-8 min-h-[90vh]">
+  <Image
+    src={"https://media.licdn.com/dms/image/v2/D5603AQF5j8N1QOTf-g/profile-displayphoto-shrink_400_400/B56ZV7sFUAGQAk-/0/1741536909785?e=1755734400&v=beta&t=VVf3jUL5nZXeWQJArYU7GLWSZ8p9xdJPERF45Jm1sQg"}
+    alt="Hero"
+    height={250}
+    width={250}
+    class="rounded-full mt-5 block sm:hidden"
+  />
+  <Image
+    src={"https://media.licdn.com/dms/image/v2/D5603AQF5j8N1QOTf-g/profile-displayphoto-shrink_400_400/B56ZV7sFUAGQAk-/0/1741536909785?e=1755734400&v=beta&t=VVf3jUL5nZXeWQJArYU7GLWSZ8p9xdJPERF45Jm1sQg"}
+    alt="Hero"
+    height={300}
+    width={300}
+    class="rounded-full mt-5 hidden sm:block"
+  />
 
-	</section>
-	<div class="border border-gray-300 mt-20 "></div>
-	<!-- Blogs -->
-	<section class="mt-10">
-		<ul class="flex flex-col gap-5">
-			{blogs.map(blog=>(
-				<a href={blog.link} class="m-5 my-10 group block">
-				<li class="ml-6">
-					<h1 class="text-2xl">
-					{blog.title}
-					</h1>
-					<div class="flex items-center space-x-2 text-sm text-white">
-					<span class="text-lg">{blog.cat}</span>
-					<span class="w-1 h-1 bg-black rounded-full inline-block"></span>
-					<span class="text-lg">{blog.date}</span>
-					<span class="w-1 h-1 bg-black rounded-full inline-block"></span>
-					<span class="text-lg">{blog.read}</span>
-					</div>
-				</li>
-				<p class="text-font-color-muted flex items-center opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100 ml-6">
-					<span class="transition-transform duration-300">Read</span> 
-					<span class="transition-transform duration-300 transform translate-x-0 group-hover:translate-x-5">--></span>
-				</p>
-				</a>
-			))}
-		</ul>
-	</section>
-	<!-- Footer -->
-	<footer class="">
-		<div class="border border-gray-300 "></div>
-		<p class="mt-10 ">
-			Subscribe to my news letter <br>
-			I wont spam i swear, I rarely write blogs anyways lol.
-		</p>
-		<button class="flex items-center justify-center mt-5 bg-gray-500 p-3 rounded-lg gap-3">
-			<Image src={rocket} alt="rocket" width={25} height={25}/>
-			Subscribe!
-		</button>
-		<div class="border border-gray-300 mt-20"></div>
-		<h1 class="my-10 mb-20">
-			Thanks for scrolling till here!
-		</h1>
-	</footer>
-</Layout>
+  <p class="mt-10 max-w-[25rem] text-wrap text-justify font-serif sm:text-xl">
+    This is my blog. It exists. Sometimes it's code. Sometimes it's just life.
+    but honestlyy? it's a mess. I generally write things when I should be
+    sleeping.
+  </p>
+  <span class="text-center text-2xl mt-8 sm:mt-15">¯\_(ツ)_/¯</span>
+</section>
+
+<div class="border border-gray-300 mt-8"></div>
+<!-- Blogs -->
+<section class="mt-10">
+  <ul class="flex flex-col gap-6">
+    {
+      blogs.map((blog, index) => (
+        <>
+          <a href={blog.link} class="group block">
+            <li class="ml-6">
+              {/* <h1>{blog.link.replaceAll("/", "")}</h1> */}
+              <h1 class="text-2xl">{blog.title}</h1>
+              <div class="flex items-center space-x-2 text-sm text-white gap-3 mt-2">
+                <span class="text-lg">{blog.cat}</span>
+                <span class="w-1 h-1 bg-[#d0d0c0] rounded-full inline-block" />
+                <span class="text-lg">{blog.date}</span>
+                <span class="w-1 h-1 bg-[#d0d0c0] rounded-full inline-block" />
+                <span class="text-lg">{blog.read}</span>
+              </div>
+            </li>
+            <p class="text-font-color-muted flex items-center opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100 ml-6">
+              <span class="transition-transform duration-300">Read</span>
+              <span class="transition-transform duration-300 transform translate-x-0 group-hover:translate-x-5">
+                --&gt;
+              </span>
+            </p>
+          </a>
+          {index !== blogs.length - 1 && (
+            <div class="border-t border-gray-500  sm:my-4" />
+          )}
+        </>
+      ))
+    }
+  </ul>
+</section>
+<!-- Footer -->
+<footer class="">
+  <div class="border border-gray-300 mt-8"></div>
+  <p class="mt-15">
+    Subscribe to my news letter <br />
+    I wont spam i swear, I rarely write blogs anyways lol.
+  </p>
+  <button
+    class="flex items-center justify-center mt-5 bg-gray-500 p-3 rounded-lg gap-3">
+    <Image src={rocket} alt="rocket" width={25} height={25} />
+    Subscribe!
+  </button>
+  <div class="border border-gray-300 mt-15"></div>
+  <h1 class="my-10 mb-20"> Thanks for scrolling till here! </h1>
+</footer>

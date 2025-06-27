@@ -1,0 +1,56 @@
+---
+const textArray = Astro.props.textArray ?? [];
+---
+
+<div class="flex justify-center mt-6 sm:mt-8 px-4">
+  <div
+    id="animated-card"
+    class="rounded-xl sm:rounded-2xl bg-[#00B8F4] w-full max-w-[900px] h-[250px] sm:h-[300px] lg:h-[400px] flex flex-col items-center justify-center relative shadow-lg">
+    <span
+      class="absolute inset-0 opacity-20"
+      style="background-image: url('/duckbg.webp'); background-size: cover; background-position: center; border-radius: inherit;"
+    ></span>
+    <div
+      class="relative z-10 flex flex-col items-center justify-center h-full -mt-8 sm:-mt-12 lg:-mt-20">
+      {
+        textArray.map((word: string) => (
+          <span class="word opacity-0 translate-y-6 transition-all duration-700 text-white text-3xl sm:text-4xl lg:text-6xl font-bold">
+            {word}
+          </span>
+        ))
+      }
+    </div>
+  </div>
+</div>
+<style>
+  @keyframes fadeUp {
+    0% {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  #animated-card .word {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fadeUp 0.7s forwards;
+  }
+  #animated-card .word:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  #animated-card .word:nth-child(2) {
+    animation-delay: 0.7s;
+  }
+  #animated-card .word:nth-child(3) {
+    animation-delay: 1.3s;
+  }
+  @media (max-width: 640px) {
+    pre {
+      font-size: 0.75rem;
+      line-height: 1.25;
+    }
+  }
+</style>

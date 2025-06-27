@@ -1,7 +1,910 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Link from "../../components/ui/Link.astro";
+import Title from "../../components/ui/Title.astro";
+import BlueCard from "../../components/ui/BlueCard.astro";
+import P from "../../components/ui/Paragraph.astro";
+import rendering from "../blog2/Rendering.png";
+import CSR from "../blog2/CSR.png";
+import { Image } from "astro:assets";
+import rocket from "../rocket.svg";
+import HTMX from "../blog2/HTMX.png";
+import Rehydration from "../blog2/rehydration.png";
+import LazyHydration from "../blog2/LazyHydration.png";
+import SelectiveHydration from "../blog2/SelectiveHydration.png";
+import ProgressiveHydration from "../blog2/ProgressiveHydration.png";
+import PartialHydration from "../blog2/PartialHydration.png";
+import astro from "../blog2/astro.png";
+
+const title = `Making Sense of Web <br/> Rendering`;
+const titleText = ["Web", "Rendering"];
 ---
 
 <Layout title="K3 Blogs - Making Sense of Web Rendering">
-  writing this rn...
+  <Title title={title} date="Apr 27, 2025" time="30 mins read" />
+  <BlueCard textArray={titleText} />
+  <section class="mt-8 px-4 max-w-prose mx-auto">
+    <h1 class="font-bold text-2xl sm:text-3xl mb-2"
+      >So What is Web Rendering?
+    </h1>
+    <p class="text-justify text-wrap mt-3 text-base sm:text-lg leading-relaxed">
+      Web Rendering is the process of generating the HTML for the client to
+      view. This all started with the rise of HTML5.
+    </p>
+    <h2 class="font-bold text-xl sm:text-2xl mt-8 mb-2"
+      >A Quick History of HTML, XML, and the Web</h2
+    >
+    <p class="text-justify text-wrap mt-3 text-base sm:text-lg leading-relaxed">
+      Let's first understand how HTML, XML, and the web came to be. HTML was
+      originally designed by <Link
+        link="https://en.wikipedia.org/wiki/HTML"
+        text="Tim Berners-Lee"
+        underline
+        target
+      /> in 1990 while working at CERN.
+    </p>
+    <ul class="list-disc pl-6 my-4 text-base sm:text-lg">
+      <li
+        >The first public description of HTML was a doc called <strong
+          >"HTML Tags"</strong
+        > (1991).</li
+      >
+      <li
+        >It described just 18 elements—imagine building the web with only that!</li
+      >
+      <li
+        >The first website launched in 1991. It was super simple compared to
+        today.</li
+      >
+    </ul>
+    <p class="text-justify text-wrap mt-3 text-base sm:text-lg leading-relaxed">
+      As the web evolved, the need for a more structured markup language arose.
+      This led to XML, which was preferred for its strict syntax and custom
+      tags. XML was great for data exchange, while HTML was for presenting
+      content.
+    </p>
+    <p class="text-justify text-wrap mt-3 text-base sm:text-lg leading-relaxed">
+      XML was preffered over HTML , JSX stands for Javascript + XML for that
+      reason because it was intended to work with XML but xith HTML5 and ES6,
+      HTML became the standard for web development—flexible, easy, and powerful.
+    </p>
+    <p class="text-justify text-wrap mt-3 text-base sm:text-lg leading-relaxed">
+      Later as the web grew, HTML wasn't enough <strong>CSS</strong> was created
+      to make sites look stylish and work on any device, while <strong
+        >PHP (Personal Home Page)</strong
+      > to do client-side work. <strong> JavaScript</strong> brought interactivity
+      to the HTML, Together, they turned simple pages into the dynamic, responsive
+      web we know today. Later AJAX and web frameworks came into existence
+    </p>
+  </section>
+  <section class="mt-8 px-4 max-w-prose mx-auto">
+    <h1 class="font-bold text-2xl sm:text-3xl mb-2">Static Sites</h1>
+    <p class="text-justify text-wrap mt-3 text-base sm:text-lg leading-relaxed">
+      These sites were statically created or generated in the server with CGI
+      with C, Perl, Python, etc., then Early Scripting Languages (PHP, ASP,
+      JSP).
+      <pre
+        class="mt-2 bg-gray-900 text-gray-100 p-4 pb-0 rounded-lg text-xs sm:text-sm whitespace-pre overflow-x-auto min-w-0 max-w-full">
+{`<html>
+  <body>
+    Hello <?php echo $_GET['name']; ?>
+  </body>
+</html>`}
+      </pre>
+    </p>
+    <P>
+      Then we also had Template Engines Smarty (PHP), ERB (Ruby), or Velocity
+      (Java). In the modern Era these static files are hosted on a CDN and
+      served to the user.
+    </P>
+
+    <P>
+      <strong>Pros</strong> were Fast loading times due to pre-built files served
+      from CDN.Highly secure (no server-side processing). Easy to deploy and scale
+      globally. Low hosting costs.easily. Great for SEO because bots can crawl the
+      pages, etc.
+    </P>
+    <P>
+      <strong>Cons</strong> are Not suitable for dynamic, user-specific content.
+      Requires full rebuild for content updates. Limited interactivity without client-side
+      JavaScript. <br />
+      To generate any HTML content that was specific to the user we needed to trigger
+      a full page reload and request the new page from the server until we have got
+      AJAX and JQuery which allowed for updating the HTML on the client.</P
+    >
+  </section>
+  <section class="mt-8 px-4 max-w-prose mx-auto">
+    <h1 class="font-bold text-2xl sm:text-3xl mb-2">
+      Client-Side Rendering (CSR)
+    </h1>
+    <P>
+      With the rise of apple mobile phone , user's want the websites to have an
+      "App" like feel thus Angular (sooner React) were created whose main focus
+      was to create web apps by manipulating the DOM <br />
+      They do this my sending a HTML shell escentially and JS needed to "Hydrate"
+      the HTML
+      <pre
+        class="mt-2 bg-gray-900 text-gray-100 p-4 pb-0 rounded-lg text-xs sm:text-sm whitespace-pre overflow-x-auto min-w-0 max-w-full">
+{`<html>
+  <head>
+    <title>ABC</title>
+    <meta>...</meta>
+  </head>
+  <body class="app">
+  </body>
+</html>`}
+      </pre>
+    </P>
+    <P>
+      The <strong>Pros</strong> were that the client experienced smoother and good
+      experience. CSR enables highly interactive UIs, fast page transitions after
+      the initial load, and allows developers to build complex single-page applications
+      (SPAs) with rich client-side routing. It also offloads much of the rendering
+      work from the server, making it easier to scale for many users.
+    </P>
+    <P>
+      <strong>Cons</strong> include slower initial load times since the browser must
+      download, parse, and execute large JavaScript bundles before rendering meaningful
+      content. This can hurt SEO, as search engines may not see the fully rendered
+      page so some content is put along with the HTML shell itself. Users on slow
+      networks or devices may experience blank screens or loading spinners. Additionally,
+      heavy load on user device.
+      <br />
+      <span
+        >Frameworks like React, Angular, Solid, Svelte, etc support this
+        paradigm.</span
+      >
+    </P>
+  </section>
+  <Image
+    src={CSR}
+    alt="Pictorical representation of CSR"
+    class="max-w-[320px] mx-auto mt-6"
+  />
+  <p class="text-center text-wrap mt-3 text-base sm:text-lg leading-relaxed"
+    >Source: <Link
+      link="https://prismic.io/blog/client-side-rendering"
+      text="Prismic"
+      underline
+    /></p
+  >
+  <section class="mt-8 px-4 max-w-prose mx-auto">
+    <h1 class="font-bold text-2xl sm:text-3xl mb-2">
+      Server-Side Rendering (SSR)
+    </h1>
+    <P>
+      To solve the issues of CSR while still maintaining the "App" like
+      behaviour SSR was introduced. <br />
+      In this paradigm the Non-Interative(state full) parts are rendered on the server
+      and this HTML is sent to the client and JS takes over
+    </P>
+    <P>
+      In SSR, the server generates the full HTML for each request, often using
+      frameworks like Next.js, Nuxt.js, or even traditional setups with Express
+      and template engines. When a user visits a page, the server fetches the
+      necessary data, renders the HTML, and sends it to the browser. JavaScript
+      then hydrates the page, making it interactive.
+    </P>
+    <pre
+      class="mt-2 bg-gray-900 text-gray-100 p-4 pb-0 rounded-lg text-xs sm:text-sm whitespace-pre overflow-x-auto min-w-0 max-w-full">
+{`// Example: Next.js SSR page
+export async function getServerSideProps() {
+  const res = await fetch('https://api.example.com/data');
+  const data = await res.json();
+  return { props: { data } };
+}
+
+export default function Page({ data }) {
+  return <div>{data.title}</div>;
+}`}
+    </pre>
+    <P>
+      <strong>Pros</strong> include faster initial page loads, better SEO (since
+      search engines see the fully rendered HTML), and improved performance for users
+      on slow devices or networks. SSR is great for content-heavy sites, blogs, e-commerce,
+      and anywhere SEO is important.
+    </P>
+    <P>
+      <strong>Cons</strong> are increased server load (since every request must be
+      rendered), potentially slower navigation between pages (unless combined with
+      client-side routing), and more complex deployment setups. SSR can also be harder
+      to cache effectively compared to static sites.
+    </P>
+  </section>
+  <section class="mt-8 px-4 max-w-prose mx-auto">
+    <h1 class="font-bold text-2xl sm:text-3xl mb-2"
+      >HTMX: Modern SSR with Partial Updates</h1
+    >
+    <P>
+      <a href="https://htmx.org/" target="_blank" class="underline font-bold"
+        >HTMX</a
+      > is a modern JavaScript library that allows you to build highly interactive
+      web applications using standard HTML and server-side rendering, without writing
+      complex client-side JavaScript. With HTMX, you can send AJAX requests, receive
+      HTML fragments, and update parts of your page dynamically—all by using simple
+      <code>hx-*</code> attributes in your HTML.
+    </P>
+    <P>
+      HTMX brings back the simplicity of server-driven UIs, but with the
+      interactivity users expect today. Instead of building a full SPA, you can
+      use your favorite backend (Node, Python, Go, PHP, etc.) to render HTML,
+      and HTMX will handle partial updates in the browser. This means less
+      JavaScript, better SEO, and easier debugging.
+    </P>
+    <P>
+      <strong>How it works:</strong> You add <code>hx-get</code>, <code
+        >hx-post</code
+      >, <code>hx-swap</code>, and other attributes to your HTML elements. When
+      a user interacts (clicks, submits, etc.), HTMX sends a request to the
+      server, receives an HTML fragment, and swaps it into the DOM—no full page
+      reload needed.
+    </P>
+    <div class="my-4">
+      <pre
+        class="bg-gray-900 text-gray-100 p-4 rounded-lg text-xs sm:text-sm whitespace-pre overflow-x-auto min-w-0 max-w-full">
+{`<!-- Example: Button that loads content from the server -->
+<button hx-get="/more-content" hx-target="#result" hx-swap="innerHTML">
+  Load More
+</button>
+<div id="result"></div>
+`}
+      </pre>
+    </div>
+    <P>
+      <strong>HTMX SSR Architecture:</strong>
+    </P>
+    <div class="my-4">
+      <Image src={HTMX} alt="Archietecture of HTMX" />
+      <div class="text-xs text-gray-500">(Diagram: HTMX SSR Architecture)</div>
+    </div>
+    <P>
+      <strong>Pros:</strong> Simpler codebase, less JavaScript, great SEO, works
+      with any backend, and enables fast, interactive UIs without a full SPA.
+    </P>
+    <P>
+      <strong>Cons:</strong> Still requires server endpoints for each interaction,
+      complex stateful UIs may need extra care ans lack of build tools.
+    </P>
+    <P>
+      <strong>Use Cases:</strong> Dashboards, admin panels, forms, content sites,
+      and anywhere you want dynamic updates without the SPA overhead.
+    </P>
+  </section>
+  <section class="mt-8 px-4 max-w-prose mx-auto">
+    <h1 class="font-bold text-2xl sm:text-3xl mb-2"
+      >Static Site Generation (SSG)</h1
+    >
+    <P>
+      Static Site Generation (SSG) is a rendering method where HTML pages are
+      generated at build time, not on each request. Tools like Astro, Next.js,
+      Gatsby, and Hugo pre-render all the pages into static HTML, which can then
+      be served instantly from a CDN. This approach combines the speed and
+      security of static sites with the flexibility of modern frameworks.
+    </P>
+    <pre
+      class="mt-2 bg-gray-900 text-gray-100 p-4 pb-0 rounded-lg text-xs sm:text-sm whitespace-pre overflow-x-auto min-w-0 max-w-full">
+{`// Example: Next.js SSG page
+export async function getStaticProps() {
+  const res = await fetch('https://api.example.com/data');
+  const data = await res.json();
+  return { props: { data } };
+}
+
+export default function Page({ data }) {
+  return <div>{data.title}</div>;
+}`}
+    </pre>
+    <P>
+      <strong>Pros</strong> include extremely fast load times (since pages are pre-built
+      and served from the edge), high security (no server-side code running at request
+      time), low hosting costs, and excellent SEO. SSG is ideal for blogs, documentation,
+      marketing sites, and any content that doesn't change per user.
+    </P>
+    <P>
+      <strong>Cons</strong> are that content updates require a rebuild and redeploy
+      of the site, which can be slow for very large sites. SSG is not suitable for
+      highly dynamic or user-specific content unless combined with client-side rendering
+      or incremental static regeneration.
+    </P>
+  </section>
+  <Image
+    src={rendering}
+    alt="Comparing the compute between CSR, SSR, SSG"
+    class="mt-4"
+    aria-label="Comparison of compute between CSR, SSR, SSG"
+  />
+  <section class="mt-8 px-4 max-w-prose mx-auto">
+    <h1 class="font-bold text-2xl sm:text-3xl mb-2">
+      Incremental Site Regeneration (ISR)
+    </h1>
+    <P>
+      SSG works for Sites that have fewer pages (in terms of 100s) but the build
+      process will creep up when the pages goes in-terms of thousands . Thats
+      why Incremental Site Regeneration (ISR) was introduted , it is a hybrid
+      approach introduced by frameworks like Next.js. It allows you to update
+      static content after the site has been built and deployed, without needing
+      a full rebuild. With ISR, pages are generated at build time and then can
+      be updated or regenerated in the background as users request them, based
+      on a revalidation interval you set.
+    </P>
+    <pre
+      class="mt-2 bg-gray-900 text-gray-100 p-4 pb-0 rounded-lg text-xs sm:text-sm whitespace-pre overflow-x-auto min-w-0 max-w-full">
+{`// Example: Next.js ISR page
+export async function getStaticProps() {
+  const res = await fetch('https://api.example.com/data');
+  const data = await res.json();
+  return {
+    props: { data },
+    revalidate: 60, // Regenerate at most once every 60 seconds
+  };
+}
+
+export default function Page({ data }) {
+  return <div>{data.title}</div>;
+}`}
+    </pre>
+    <P>
+      <strong>Pros</strong> include the ability to serve static pages with the performance
+      and security benefits of SSG, while still allowing for content updates without
+      a full rebuild. This is ideal for sites with lots of pages or frequently updated
+      content, like blogs, e-commerce, or news sites.
+    </P>
+    <P>
+      <strong>Cons</strong> are that the first user to visit a stale page may experience
+      a slightly slower load as the page is regenerated. There is also added complexity
+      in managing cache and revalidation logic, and not all frameworks support ISR
+      out of the box so vendor-lock is a possibility.
+    </P>
+  </section>
+  <section class="mt-8 px-4 max-w-prose mx-auto">
+    <h1 class="font-bold text-2xl sm:text-3xl mb-2">
+      Streaming Server-Side Rendering (Streaming SSR)
+    </h1>
+    <P>
+      Streaming Server-Side Rendering (Streaming SSR) is an advanced SSR
+      technique where the server sends parts of the HTML to the client as soon
+      as they are ready, instead of waiting for the entire page to be rendered.
+      This allows the browser to start displaying content earlier, improving
+      perceived performance and user experience. Frameworks like React 18,
+      Next.js, and others support streaming SSR, enabling features like React
+      Server Components and partial hydration.
+    </P>
+    <pre
+      class="mt-2 bg-gray-900 text-gray-100 p-4 pb-0 rounded-lg text-xs sm:text-sm whitespace-pre overflow-x-auto min-w-0 max-w-full">
+{`// Example: Node.js with React 18 Streaming SSR
+import { renderToPipeableStream } from 'react-dom/server';
+import express from 'express';
+import App from './App';
+
+const server = express();
+server.get('/', (req, res) => {
+// Parses through the component
+  const { pipe } = renderToPipeableStream(<App />, {
+    onShellReady() {
+    // Streams the data to the client
+      res.setHeader('content-type', 'text/html');
+      pipe(res);
+    },
+  });
+});
+server.listen(3000);`}
+    </pre>
+    <P>
+      <strong>Pros</strong> include faster time-to-first-byte (TTFB), improved user
+      experience by showing content sooner, and better handling of slow data sources
+      or APIs. Streaming SSR is especially useful for large or complex pages where
+      some parts can be shown before others are ready.
+    </P>
+    <P>
+      <strong>Cons</strong> are increased implementation complexity, potential issues
+      with caching and edge/CDN compatibility, and the need for framework support.
+      Debugging and error handling can also be more challenging compared to traditional
+      SSR.
+    </P>
+  </section>
+  <section class="mt-8 px-4 max-w-prose mx-auto">
+    <h1 class="font-bold text-2xl sm:text-3xl mb-2">
+      Edge-Side Rendering (ESR) / Edge Rendering
+    </h1>
+    <P>
+      Edge-Side Rendering (ESR), also known as Edge Rendering, is a modern
+      approach where dynamic content is rendered at the edge—close to the
+      user—using edge servers or serverless functions provided by CDNs like
+      Vercel Edge, Cloudflare Workers, or Netlify Edge Functions. This reduces
+      latency and enables highly dynamic, personalized content to be served with
+      the speed of static files. This similar to SSR but works on Edge.
+    </P>
+    <pre
+      class="mt-2 bg-gray-900 text-gray-100 p-4 pb-0 rounded-lg text-xs sm:text-sm whitespace-pre overflow-x-auto min-w-0 max-w-full">
+{`// Example: Edge Function (Vercel/Cloudflare)
+export default async function handler(req) {
+  const data = await fetch('https://api.example.com/data').then(res => res.json());
+  return new Response(\`<html><body>\${data.title}</body></html>\`, {
+    headers: { 'content-type': 'text/html' },
+  });
+}
+// This function runs at the edge, close to the user
+`}
+</pre>
+
+    <P>
+      <strong>Pros</strong> include ultra-low latency, global scalability, and the
+      ability to serve personalized or dynamic content quickly to users anywhere
+      in the world. ESR is ideal for use cases like A/B testing, localization, authentication,
+      and real-time data.
+    </P>
+    <P>
+      <strong>Cons</strong> are limitations in runtime (restricted APIs, cold starts),
+      potential vendor lock-in, and sometimes higher costs compared to traditional
+      hosting. Debugging and monitoring can also be more challenging due to the distributed
+      nature of edge environments.
+    </P>
+  </section>
+  <section class="mt-8 px-4 max-w-prose mx-auto">
+    <h1 class="font-bold text-2xl sm:text-3xl mb-2"> Hydration </h1>
+    <P>
+      Hydration is the process of attaching client-side JavaScript to
+      server-rendered HTML, making the page interactive. Modern frameworks use
+      various hydration strategies to optimize performance and user experience.
+      Here are some key types:
+    </P>
+    <h2 class="font-bold text-xl sm:text-2xl mt-6 mb-2">Rehydration</h2>
+    <P>
+      Rehydration is the standard process where the entire server-rendered HTML
+      is "hydrated" with JavaScript on the client, enabling interactivity. This
+      is common in frameworks like React, where the initial HTML is static, and
+      then React takes over to make it dynamic.
+    </P>
+    <pre
+      class="mt-2 bg-gray-900 text-gray-100 p-4 pb-0 rounded-lg text-xs sm:text-sm whitespace-pre overflow-x-auto min-w-0 max-w-full">
+{`// React: Standard rehydration
+ReactDOM.hydrate(<App />, document.getElementById('root'));
+`}
+    </pre>
+    <Image
+      alt="Rehydration workflow"
+      src={Rehydration}
+      class="max-h-[500px] max-w-[150px] mx-auto mt-3"
+    />
+    <h2 class="font-bold text-xl sm:text-2xl mt-6 mb-2">Partial Hydration</h2>
+    <P>
+      Partial Hydration only hydrates specific interactive components on the
+      page, rather than the entire page. This reduces JavaScript sent to the
+      client and improves performance. Frameworks like Astro and some React
+      meta-frameworks support this approach.
+    </P>
+    <pre
+      class="mt-2 bg-gray-900 text-gray-100 p-4 pb-0 rounded-lg text-xs sm:text-sm whitespace-pre overflow-x-auto min-w-0 max-w-full">
+{`<!-- Astro: Only hydrate the Counter component -->
+<Counter client:load />
+`}
+    </pre>
+
+    <Image
+      alt="PartialHydration workflow"
+      src={PartialHydration}
+      class="max-h-[500px] max-w-[150px] mx-auto mt-3"
+    />
+    <h2 class="font-bold text-xl sm:text-2xl mt-6 mb-2"
+      >Progressive Hydration</h2
+    >
+    <P>
+      Progressive Hydration hydrates parts of the page in stages, often based on
+      visibility or user interaction. This allows the most important content to
+      become interactive first, improving perceived performance. Used in
+      frameworks like React (with React.lazy/Suspense) and Next.js.
+    </P>
+    <pre
+      class="mt-2 bg-gray-900 text-gray-100 p-4 pb-0 rounded-lg text-xs sm:text-sm whitespace-pre overflow-x-auto min-w-0 max-w-full">
+{`// React: Hydrate above-the-fold first, then below-the-fold
+// (Conceptual example)
+`}
+    </pre>
+    <Image
+      alt="ProgressiveHydration workflow"
+      src={ProgressiveHydration}
+      class="max-h-[500px] max-w-[150px] mx-auto mt-3"
+    />
+    <h2 class="font-bold text-xl sm:text-2xl mt-6 mb-2">Selective Hydration</h2>
+    <P>
+      Selective Hydration targets only the components that need to be
+      interactive, often based on user actions or state. This is an advanced
+      optimization, reducing unnecessary JavaScript execution. React 18's
+      selective hydration with Suspense is an example.
+    </P>
+    <pre
+      class="mt-2 bg-gray-900 text-gray-100 p-4 pb-0 rounded-lg text-xs sm:text-sm whitespace-pre overflow-x-auto min-w-0 max-w-full">
+{`// React 18: Selective hydration with Suspense
+<Suspense fallback={<Spinner />}>
+  <InteractiveComponent />
+</Suspense>
+`}
+    </pre>
+    <Image
+      alt="SelectiveHydration workflow"
+      src={SelectiveHydration}
+      class="max-h-[500px] max-w-[150px] mx-auto mt-3"
+    />
+    <h2 class="font-bold text-xl sm:text-2xl mt-6 mb-2">Lazy Hydration</h2>
+    <P>
+      Lazy Hydration delays hydration of components until they are needed, such
+      as when they enter the viewport or on user interaction. This further
+      reduces initial JavaScript and speeds up page load. Supported in Astro,
+      Qwik, and with custom logic in React.
+    </P>
+    <pre
+      class="mt-2 bg-gray-900 text-gray-100 p-4 pb-0 rounded-lg text-xs sm:text-sm whitespace-pre overflow-x-auto min-w-0 max-w-full">
+{`<!-- Astro: Hydrate only when visible -->
+<Counter client:visible />
+`}
+    </pre>
+    <Image
+      alt="LazyHydration workflow"
+      src={LazyHydration}
+      class="max-h-[500px] max-w-[150px] mx-auto mt-3"
+    />
+  </section>
+  <section class="mt-8 px-4 max-w-prose mx-auto">
+    <h1 class="font-bold text-2xl sm:text-3xl mb-2"> Rendering Strategies </h1>
+    <P>
+      Modern web frameworks use a variety of rendering strategies to optimize
+      performance, user experience, and scalability. Here are two important
+      ones:
+    </P>
+    <h2 class="font-bold text-xl sm:text-2xl mt-6 mb-2">Prerendering</h2>
+    <P>
+      Prerendering is the process of generating static HTML for pages at build
+      time, before any user requests. This is commonly used for pages that don't
+      change often, ensuring fast load times and great SEO. Prerendering is the
+      default in static site generators and can be selectively applied in
+      frameworks like Next.js and Astro.
+    </P>
+    <pre
+      class="mt-2 bg-gray-900 text-gray-100 p-4 pb-0 rounded-lg text-xs sm:text-sm whitespace-pre overflow-x-auto min-w-0 max-w-full">
+{`// Next.js: Prerender a page at build time
+export async function getStaticProps() {
+  // Fetch data at build time
+  return { props: { /* ... */ } };
+}
+`}
+    </pre>
+    <h2 class="font-bold text-xl sm:text-2xl mt-6 mb-2">Deferred Rendering</h2>
+    <P>
+      Deferred Rendering is a strategy where non-critical parts of a page are
+      rendered or loaded after the initial page load. This improves perceived
+      performance by prioritizing above-the-fold content. Deferred rendering can
+      be implemented using techniques like code splitting, dynamic imports, or
+      frameworks' built-in features (e.g., React Suspense, lazy loading
+      components).
+    </P>
+    <pre
+      class="mt-2 bg-gray-900 text-gray-100 p-4 pb-0 rounded-lg text-xs sm:text-sm whitespace-pre overflow-x-auto min-w-0 max-w-full">
+{`// React: Deferred rendering with Suspense
+<Suspense fallback={<Spinner />}>
+  <NonCriticalComponent />
+</Suspense>
+`}
+    </pre>
+  </section>
+  <section class="mt-8 px-4 max-w-prose mx-auto">
+    <h1 class="font-bold text-2xl sm:text-3xl mb-2"> Resumability </h1>
+    <P>
+      Resumability is a modern web rendering concept where the browser can
+      "resume" interactivity from where the server left off, without
+      re-executing or rehydrating all the JavaScript on the client. Instead of
+      replaying the entire app logic, the framework serializes the application
+      state and event listeners on the server, allowing the client to pick up
+      instantly. This leads to ultra-fast startup times and minimal JavaScript
+      execution on the client.
+    </P>
+    <pre
+      class="mt-2 bg-gray-900 text-gray-100 p-4 pb-0 rounded-lg text-xs sm:text-sm whitespace-pre overflow-x-auto min-w-0 max-w-full">
+{`// Qwik: Resumability example (conceptual)
+// Server serializes state and listeners into HTML
+// Client resumes instantly without rehydration
+`}
+    </pre>
+    <P>
+      <strong>Frameworks:</strong> Qwik is the leading framework implementing resumability.
+      It enables instant interactivity even on large, complex pages by avoiding the
+      need to re-run or hydrate all JavaScript on the client.
+    </P>
+  </section>
+  <section class="mt-8 px-4 max-w-prose mx-auto">
+    <h1 class="font-bold text-2xl sm:text-3xl mb-2"> Server Islands </h1>
+    <P>
+      Server Islands is a rendering pattern where only specific parts
+      ("islands") of a web page are rendered on the server, while the rest of
+      the page remains static or is rendered differently. These islands can be
+      interactive or dynamic components, and are often used to optimize
+      performance by minimizing the amount of JavaScript and server work needed
+      for each page. The rest of the page can be static HTML, SSG, or even
+      client-rendered.
+    </P>
+    <pre
+      class="mt-2 bg-gray-900 text-gray-100 p-4 pb-0 rounded-lg text-xs sm:text-sm whitespace-pre overflow-x-auto min-w-0 max-w-full">
+{`<!-- Astro: Server Islands example -->
+<StaticContent />
+<InteractiveIsland client:load />
+<AnotherStaticContent />
+`}
+    </pre>
+    <P>
+      <strong>Frameworks:</strong> Astro is a leading framework implementing the
+      islands architecture, allowing you to mix static and interactive components
+      efficiently. Other frameworks are also exploring this pattern for better performance
+      and flexibility.
+    </P>
+    <Image src={astro} alt="Astro Architecture" class="mt-6" />
+    <p class="text-center"
+      >Source: <Link
+        text="Astro"
+        link="https://astro.build/blog/future-of-astro-server-islands/"
+        underline
+      /></p
+    >
+  </section>
+  <section class="mt-8 px-4 max-w-full mx-auto">
+    <h1 class="font-bold text-2xl sm:text-3xl mb-4 text-center">
+      Rendering Techniques Comparison Table
+    </h1>
+
+    <!-- Table for sm+ screens -->
+    <div class="overflow-x-auto w-full hidden sm:block">
+      <table class="min-w-full border border-gray-300 text-xs sm:text-base">
+        <thead>
+          <tr>
+            <th class="border px-2 py-2">Technique</th>
+            <th class="border px-2 py-2">Performance</th>
+            <th class="border px-2 py-2">SEO</th>
+            <th class="border px-2 py-2">Interactivity</th>
+            <th class="border px-2 py-2">Complexity</th>
+            <th class="border px-2 py-2">Use Cases</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border px-2 py-2 font-semibold">SSR</td>
+            <td class="border px-2 py-2">Good (fast initial load)</td>
+            <td class="border px-2 py-2">Excellent</td>
+            <td class="border px-2 py-2">High (after hydration)</td>
+            <td class="border px-2 py-2">Medium</td>
+            <td class="border px-2 py-2">Blogs, e-commerce, dashboards</td>
+          </tr>
+          <tr>
+            <td class="border px-2 py-2 font-semibold">CSR</td>
+            <td class="border px-2 py-2">Slower initial, fast after load</td>
+            <td class="border px-2 py-2">Poor (unless pre-rendered)</td>
+            <td class="border px-2 py-2">Very High</td>
+            <td class="border px-2 py-2">Low</td>
+            <td class="border px-2 py-2">SPAs, dashboards, apps</td>
+          </tr>
+          <tr>
+            <td class="border px-2 py-2 font-semibold">SSG</td>
+            <td class="border px-2 py-2">Excellent (CDN)</td>
+            <td class="border px-2 py-2">Excellent</td>
+            <td class="border px-2 py-2">Medium (after hydration)</td>
+            <td class="border px-2 py-2">Low</td>
+            <td class="border px-2 py-2">Blogs, docs, marketing</td>
+          </tr>
+          <tr>
+            <td class="border px-2 py-2 font-semibold">ISR</td>
+            <td class="border px-2 py-2">Excellent (with updates)</td>
+            <td class="border px-2 py-2">Excellent</td>
+            <td class="border px-2 py-2">Medium (after hydration)</td>
+            <td class="border px-2 py-2">Medium</td>
+            <td class="border px-2 py-2">Large blogs, e-commerce, news</td>
+          </tr>
+          <tr>
+            <td class="border px-2 py-2 font-semibold">Streaming SSR</td>
+            <td class="border px-2 py-2">Best TTFB, fast perceived</td>
+            <td class="border px-2 py-2">Excellent</td>
+            <td class="border px-2 py-2">High (after hydration)</td>
+            <td class="border px-2 py-2">High</td>
+            <td class="border px-2 py-2">Large/complex apps, news, feeds</td>
+          </tr>
+          <tr>
+            <td class="border px-2 py-2 font-semibold">ESR</td>
+            <td class="border px-2 py-2">Ultra-fast (edge)</td>
+            <td class="border px-2 py-2">Excellent</td>
+            <td class="border px-2 py-2">High</td>
+            <td class="border px-2 py-2">High</td>
+            <td class="border px-2 py-2">Personalization, A/B, auth</td>
+          </tr>
+          <tr>
+            <td class="border px-2 py-2 font-semibold">Server Islands</td>
+            <td class="border px-2 py-2">Excellent (minimal JS)</td>
+            <td class="border px-2 py-2">Excellent</td>
+            <td class="border px-2 py-2">Targeted (only islands)</td>
+            <td class="border px-2 py-2">Medium</td>
+            <td class="border px-2 py-2">Mixed static/interactive sites</td>
+          </tr>
+          <tr>
+            <td class="border px-2 py-2 font-semibold">Resumability</td>
+            <td class="border px-2 py-2">Best (minimal JS, instant)</td>
+            <td class="border px-2 py-2">Excellent</td>
+            <td class="border px-2 py-2">Instant, ultra-high</td>
+            <td class="border px-2 py-2">High (new paradigm)</td>
+            <td class="border px-2 py-2">Large, interactive, modern apps</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Stacked cards for mobile -->
+    <div class="block sm:hidden space-y-4 text-sm">
+      <!-- Repeat this card structure for each technique -->
+      <div class="border rounded-lg p-4 shadow">
+        <div><span class="font-semibold">Technique:</span> SSR</div>
+        <div
+          ><span class="font-semibold">Performance:</span> Good (fast initial load)</div
+        >
+        <div><span class="font-semibold">SEO:</span> Excellent</div>
+        <div
+          ><span class="font-semibold">Interactivity:</span> High (after hydration)</div
+        >
+        <div><span class="font-semibold">Complexity:</span> Medium</div>
+        <div
+          ><span class="font-semibold">Use Cases:</span> Blogs, e-commerce, dashboards</div
+        >
+      </div>
+
+      <div class="border rounded-lg p-4 shadow">
+        <div><span class="font-semibold">Technique:</span> CSR</div>
+        <div
+          ><span class="font-semibold">Performance:</span> Slower initial, fast after
+          load</div
+        >
+        <div
+          ><span class="font-semibold">SEO:</span> Poor (unless pre-rendered)</div
+        >
+        <div><span class="font-semibold">Interactivity:</span> Very High</div>
+        <div><span class="font-semibold">Complexity:</span> Low</div>
+        <div
+          ><span class="font-semibold">Use Cases:</span> SPAs, dashboards, apps</div
+        >
+      </div>
+
+      <div class="border rounded-lg p-4 shadow">
+        <div><span class="font-semibold">Technique:</span> SSG</div>
+        <div
+          ><span class="font-semibold">Performance:</span> Excellent (CDN)</div
+        >
+        <div><span class="font-semibold">SEO:</span> Excellent</div>
+        <div
+          ><span class="font-semibold">Interactivity:</span> Medium (after hydration)</div
+        >
+        <div><span class="font-semibold">Complexity:</span> Low</div>
+        <div
+          ><span class="font-semibold">Use Cases:</span> Blogs, docs, marketing</div
+        >
+      </div>
+
+      <div class="border rounded-lg p-4 shadow">
+        <div><span class="font-semibold">Technique:</span> ISR</div>
+        <div
+          ><span class="font-semibold">Performance:</span> Excellent (with updates)</div
+        >
+        <div><span class="font-semibold">SEO:</span> Excellent</div>
+        <div
+          ><span class="font-semibold">Interactivity:</span> Medium (after hydration)</div
+        >
+        <div><span class="font-semibold">Complexity:</span> Medium</div>
+        <div
+          ><span class="font-semibold">Use Cases:</span> Large blogs, e-commerce,
+          news</div
+        >
+      </div>
+
+      <div class="border rounded-lg p-4 shadow">
+        <div><span class="font-semibold">Technique:</span> Streaming SSR</div>
+        <div
+          ><span class="font-semibold">Performance:</span> Best TTFB, fast perceived</div
+        >
+        <div><span class="font-semibold">SEO:</span> Excellent</div>
+        <div
+          ><span class="font-semibold">Interactivity:</span> High (after hydration)</div
+        >
+        <div><span class="font-semibold">Complexity:</span> High</div>
+        <div
+          ><span class="font-semibold">Use Cases:</span> Large/complex apps, news,
+          feeds</div
+        >
+      </div>
+
+      <div class="border rounded-lg p-4 shadow">
+        <div><span class="font-semibold">Technique:</span> ESR</div>
+        <div
+          ><span class="font-semibold">Performance:</span> Ultra-fast (edge)</div
+        >
+        <div><span class="font-semibold">SEO:</span> Excellent</div>
+        <div><span class="font-semibold">Interactivity:</span> High</div>
+        <div><span class="font-semibold">Complexity:</span> High</div>
+        <div
+          ><span class="font-semibold">Use Cases:</span> Personalization, A/B, auth</div
+        >
+      </div>
+
+      <div class="border rounded-lg p-4 shadow">
+        <div><span class="font-semibold">Technique:</span> Server Islands</div>
+        <div
+          ><span class="font-semibold">Performance:</span> Excellent (minimal JS)</div
+        >
+        <div><span class="font-semibold">SEO:</span> Excellent</div>
+        <div
+          ><span class="font-semibold">Interactivity:</span> Targeted (only islands)</div
+        >
+        <div><span class="font-semibold">Complexity:</span> Medium</div>
+        <div
+          ><span class="font-semibold">Use Cases:</span> Mixed static/interactive
+          sites</div
+        >
+      </div>
+
+      <div class="border rounded-lg p-4 shadow">
+        <div><span class="font-semibold">Technique:</span> Resumability</div>
+        <div
+          ><span class="font-semibold">Performance:</span> Best (minimal JS, instant)</div
+        >
+        <div><span class="font-semibold">SEO:</span> Excellent</div>
+        <div
+          ><span class="font-semibold">Interactivity:</span> Instant, ultra-high</div
+        >
+        <div
+          ><span class="font-semibold">Complexity:</span> High (new paradigm)</div
+        >
+        <div
+          ><span class="font-semibold">Use Cases:</span> Large, interactive, modern
+          apps</div
+        >
+      </div>
+    </div>
+  </section>
+  <section class="mt-8 px-4 max-w-prose mx-auto">
+    <h1 class="font-bold text-2xl sm:text-3xl mb-2"> Conclusion </h1>
+    <P>
+      Astro is the reason why i wanted to write this blog so badly. I wanted to
+      write a blog for a long time, CSR was not the option because of SEO and
+      SSR felt <strong>WAYYYYYYYYYY</strong> over-kill and ISR felt like it was too
+      much aswell until i landed on astro. it took me few days to understand astro
+      but it was smooth sailing after that. <br />
+      <br /> In conclusion pick the right tool to finish the job rather than bending
+      the job to cater to your tools.
+    </P>
+  </section>
 </Layout>
+<footer class="mt-15">
+  <div class="border border-gray-300"></div>
+  <p class="mt-10 text-base sm:text-lg leading-7 sm:leading-9 text-center px-2">
+    Subscribe to my news letter <br />
+    I wont spam I swear, I rarely write blogs anyways lol.
+  </p>
+  <button
+    class="flex items-center justify-center mt-5 bg-gray-500 p-3 rounded-lg gap-3 w-full max-w-xs mx-auto text-base sm:text-lg">
+    <Image src={rocket} alt="rocket" width={25} height={25} />
+    Subscribe!
+  </button>
+  <div class="border border-gray-300 mt-20"></div>
+  <h1 class="my-10 mb-20 text-center text-lg sm:text-xl">
+    Thanks for scrolling till here!
+  </h1>
+</footer>
+<style>
+  pre {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+  }
+  @media (max-width: 640px) {
+    table {
+      font-size: 0.8rem;
+    }
+    th,
+    td {
+      padding: 0.5rem 0.25rem;
+    }
+    th,
+    td {
+      white-space: nowrap;
+    }
+  }
+</style>

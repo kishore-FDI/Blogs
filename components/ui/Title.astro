@@ -1,0 +1,18 @@
+---
+const { title, date, time } = Astro.props;
+---
+
+<section
+  class="flex justify-center flex-col items-center mt-10 sm:mt-15 px-2 sm:px-4">
+  <h1
+    class="text-2xl sm:text-4xl font-serif text-center leading-tight break-words">
+    <span set:html={title} />
+    <br class="hidden sm:block" />
+    <span
+      class="font-sans mt-2 sm:mt-5 flex sm:flex-row items-center justify-center text-sm sm:text-lg lg:text-xl gap-3 sm:gap-3 text-gray-600">
+      <p>{date}</p>
+      <span class="block size-1 bg-gray-600 rounded-full"></span>
+      <p>{time}</p>
+    </span>
+  </h1>
+</section>

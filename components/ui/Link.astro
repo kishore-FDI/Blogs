@@ -1,0 +1,65 @@
+---
+type Props = {
+  link: string;
+  text: string;
+  class?: string;
+  underline?: boolean;
+  target?: boolean | string;
+  ariaLabel?: string;
+  title?: string;
+  rel?: string;
+  prefetch?: boolean;
+};
+
+const {
+  link,
+  text,
+  class: userClass = "",
+  underline = false,
+  target = false,
+  ariaLabel = "",
+  title = "",
+  rel = "",
+  prefetch = false,
+}: Props = Astro.props;
+
+const finalClass = `${userClass} ${underline ? "underline" : ""}`.trim();
+
+const targetAttr =
+  target ?
+    target === true ?
+      "_blank"
+    : target
+  : undefined;
+
+const relAttr =
+  rel || (targetAttr === "_blank" ? "noopener noreferrer" : undefined);
+
+const ariaLabelAttr = ariaLabel || text;
+
+const isInternal = link?.startsWith("/");
+---
+
+{
+  isInternal ?
+    <>
+      <a
+        href={link}
+        class={finalClass}
+        aria-label={ariaLabelAttr}
+        title={title || undefined}
+        {...(prefetch ? { "data-prefetch": "true" } : {})}>
+        {text}
+      </a>
+      {prefetch && <link rel="prefetch" href={link} as="document" />}
+    </>
+  : <a
+      href={link}
+      class={finalClass}
+      target={targetAttr}
+      rel={relAttr}
+      aria-label={ariaLabelAttr}
+      title={title || undefined}>
+      {text}
+    </a>
+}

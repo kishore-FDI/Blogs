@@ -18,9 +18,31 @@ import astro from "../blog2/astro.png";
 
 const title = `Making Sense of Web <br/> Rendering`;
 const titleText = ["Web", "Rendering"];
+const description = "A deep dive into web rendering: static sites, CSR, SSR, and modern web performance techniques.";
+const keywords = "web rendering, static sites, CSR, SSR, hydration, astro, web performance";
+const author = "Kishore Kumar";
+const publishedDate = "2025-04-27";
+const modifiedDate = "2025-04-27";
+const canonicalUrl = "https://yourdomain.com/blog2";
 ---
 
-<Layout title="K3 Blogs - Making Sense of Web Rendering">
+<Layout title="K3 Blogs - Making Sense of Web Rendering" description={description} keywords={keywords} author={author}>
+  <head slot="head">
+    <script type="application/ld+json">{JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      'headline': 'Making Sense of Web Rendering',
+      'description': description,
+      'author': {
+        '@type': 'Person',
+        'name': author
+      },
+      'datePublished': publishedDate,
+      'dateModified': modifiedDate,
+      'mainEntityOfPage': canonicalUrl,
+      'url': canonicalUrl
+    })}</script>
+  </head>
   <Title title={title} date="Apr 27, 2025" time="30 mins read" />
   <BlueCard textArray={titleText} />
   <section class="mt-8 px-4 max-w-prose mx-auto">
@@ -872,6 +894,9 @@ export async function getStaticProps() {
       the job to cater to your tools.
     </P>
   </section>
+  <div class="mt-12 text-center">
+    <a href="/blog1" class="underline text-blue-500 hover:text-blue-700">← Read: Making sense of Vibe Coding as a fresher</a>
+  </div>
 </Layout>
 <footer class="mt-15">
   <div class="border border-gray-300"></div>

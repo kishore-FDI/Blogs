@@ -6,7 +6,9 @@ import whatsapp from "../whatsapp.svg";
 import insta from "../insta.svg";
 import linkedin from "../linkedin.svg";
 import { ClientRouter } from "astro:transitions";
-const { title } = Astro.props;
+const { title, description = 'A personal blog about web development, technology, and more.', keywords = 'blog, web development, technology, astro', author = 'Kishore Kumar' } = Astro.props;
+const site = Astro.site || 'https://yourdomain.com';
+const canonicalUrl = site + Astro.url.pathname;
 ---
 
 <html lang="en">
@@ -16,6 +18,32 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content={author} />
+    <link rel="canonical" href={canonicalUrl} />
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Blogs" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">{JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      'url': site,
+      'name': title,
+      'author': {
+        '@type': 'Person',
+        'name': author
+      },
+      'description': description
+    })}</script>
     <ClientRouter />
     <style type="text/css">
       body {

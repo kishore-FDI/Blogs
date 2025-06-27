@@ -7,9 +7,31 @@ import rocket from "../rocket.svg";
 import theo from "../TheoJuniorDevs.png";
 import cursorlol from "../cursorlol.png";
 import claudeslop from "../claudeslop.mp4";
+const description = "Exploring the concept of 'vibe coding' as a fresher, its impacts, and the role of AI tools in modern development.";
+const keywords = "vibe coding, AI tools, web development, freshers, coding mindset";
+const author = "Kishore Kumar";
+const publishedDate = "2025-04-19";
+const modifiedDate = "2025-04-19";
+const canonicalUrl = "https://yourdomain.com/blog1";
 ---
 
-<Layout title="K3 Blogs - Making sense of Vibe Coding as a fresher">
+<Layout title="K3 Blogs - Making sense of Vibe Coding as a fresher" description={description} keywords={keywords} author={author}>
+  <head slot="head">
+    <script type="application/ld+json">{JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      'headline': 'Making sense of Vibe Coding as a fresher',
+      'description': description,
+      'author': {
+        '@type': 'Person',
+        'name': author
+      },
+      'datePublished': publishedDate,
+      'dateModified': modifiedDate,
+      'mainEntityOfPage': canonicalUrl,
+      'url': canonicalUrl
+    })}</script>
+  </head>
   <section
     class="flex justify-center flex-col items-center mt-6 sm:mt-15 px-2 sm:px-4">
     <h1
@@ -423,7 +445,7 @@ app/
           fast is crucial. In that context, having a powerful coding assistant like
           Claude might feel more productive than hiring new engineers. Reviews are
           mostly automated through tools like Code Rabbit or Graphite. He doesn't
-          write many tests either — because he knows he'll be the one maintaining
+          write many tests either — because he'll be the one maintaining
           the code. <br /><br />That works for him. But that doesn't translate
           well into larger engineering teams or enterprise environments, where
           code longevity, maintainability, and shared ownership are critical.
@@ -592,4 +614,7 @@ app/
       </p>
     </p>
   </section>
+  <div class="mt-12 text-center">
+    <a href="/blog2" class="underline text-blue-500 hover:text-blue-700">Read: Making Sense of Web Rendering →</a>
+  </div>
 </Layout>
